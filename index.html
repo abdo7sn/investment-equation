@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Rafaah | Investment Calculator</title>
+  <!-- Plugins CSS -->
+  <link href="css/plugins.css" rel="stylesheet">
+  <link href="css/jquery-ui.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+  <!-- Custom CSS -->  
+  <link href="css/style.css" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="images/logo-r.png">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <script src="https://cdn.jsdelivr.net/npm/autonumeric@4.6.0/dist/autoNumeric.min.js"></script>
+
+</head>
+
+<body>
+  <!-- Pre Loader -->
+  <div id="dvLoading"></div>
+  <!-- Navigation Start -->
+  <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-header navbar-mobile">
+    <div class="navbar-container container">
+      <div class="navbar-brand">
+        <a class="navbar-brand-logo" href="#top">
+          <img src="images/logo.png" alt="logo">
+        </a>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse justify-content-around" id="navbarNav">
+        <ul class="navbar-nav menu-navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#top"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#calculator"><i class="fas fa-calculator"></i> Calculator</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services"><i class="fas fa-dollar-sign"></i> Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#blog"><i class="bi bi-book"></i> Courses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reviews"><i class="far fa-comment-dots"></i> Reviews</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link learn-more-btn" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navigation End -->
+
+  <!-- Banner Start -->
+  <div id="top" class="header">
+    <div class="container header-container">
+      <div class="d-none d-lg-block col-lg-6  header-img-section">
+        <img src="images/header.jpg" class="img-fluid" alt="banner">
+      </div>
+      <div class="col-lg-5 offset-lg-1 col-sm-12 header-title-section">
+        <p class="header-subtitle">Rafaah Investment Calculator</p>
+        <h1 class="header-title">Accurate Tracking for Your Investments!</h1>
+        <p class="header-title-text">Simplify Your Financial Journey with Cutting-Edge Tools Designed to Deliver Accurate Investment Tracking, 
+          Real-Time Market Insights, and Comprehensive Analytics, Helping You Make Smarter Financial Decisions and Achieve Your Goals Faster.</p>
+        <div class="learn-more-btn-section">
+          <a class="nav-link learn-more-btn btn-invert" href="#services">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Banner End -->
+
+  <!-- calculator Start -->
+  <section id="calculator" class="calculator-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="section-heading">Investment Calculator</h2>
+          <p class="section-para">
+            The Investment Calculator can be used to calculate a specific parameter for an investment plan. The tabs represent the desired parameter to be found. 
+            For example, to calculate the return rate needed to reach an investment goal with particular inputs, click the 'Return Rate' tab.
+          </p>
+        </div>
+      </div>
+      
+      <div class="row button-row">
+        <div class="col-6 col-md-4">
+          <button class="btn custom-btn w-100 active" data-form="formEA">End Amount</button>
+        </div>
+        <div class="col-6 col-md-4">
+          <button class="btn custom-btn w-100" data-form="formRR">Return Rate</button>
+        </div>
+      </div>
+      
+      <div class="row button-row">
+        <div class="col-6 col-md-4">
+          <button class="btn custom-btn w-100" data-form="formIL">Investment Length</button>
+        </div>
+        <div class="col-6 col-md-4">
+          <button class="btn custom-btn w-100" data-form="formSA">Starting Amount</button>
+        </div>
+        <div class="col-6 col-md-4">
+          <button class="btn custom-btn w-100" data-form="formAC">Additional Contribution</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="form-container">
+          </div>
+        </div>
+    
+        <div class="col-lg-4">
+          <div class="emi-details">
+          </div>
+        </div>
+      
+        <div class="col-lg-4">
+          <div class="pie-chart">
+            
+          </div>
+        </div>
+      </div>
+    
+      <div class="container mt-5">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <h3 class="text-center mb-4">Accumulation Schedule</h3>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center">
+                        <thead class="table" style="background-color: #213884c9; color: #fff;">
+                            <tr>
+                                <th>Year</th>
+                                <th>Deposit</th>
+                                <th>Interest</th>
+                                <th>Ending Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody id="accumulation-table">
+                            <tr>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>2,000</td>
+                                <td>22,000</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>0</td>
+                                <td>2,200</td>
+                                <td>24,200</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>0</td>
+                                <td>2,420</td>
+                                <td>26,620</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>0</td>
+                                <td>2,662</td>
+                                <td>29,282</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>0</td>
+                                <td>2,928</td>
+                                <td>32,210</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>0</td>
+                                <td>3,221</td>
+                                <td>35,431</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>0</td>
+                                <td>3,543</td>
+                                <td>38,974</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>0</td>
+                                <td>3,897</td>
+                                <td>42,871</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>0</td>
+                                <td>4,287</td>
+                                <td>47,158</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>0</td>
+                                <td>4,715</td>
+                                <td>51,873</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-8 graphical-representation">
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- calculator End -->
+
+  <!-- services Start -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="section-heading">Our Mission</h2>
+          <p class="section-para">We believe financial freedom should be accessible to all. By leveraging AI-driven insights and real-time guidance, 
+            we empower individuals to make informed, confident financial choices and take control of their financial future.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-sm-6">
+          <div class="service-box">
+            <div class="service-icon">
+              <img src="images/services/001-credit.png" alt="icon">
+            </div>
+            <div class="service-text">
+              <h3 class="service-heading">AI Portfolio Management</h3>
+              <p class="service-para">Use advanced AI to improve your investment decisions, manage your portfolio, and achieve better financial results with less effort.</p>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="service-box">
+            <div class="service-icon">
+              <img src="images/services/002-automobile.png" alt="icon">
+            </div>
+            <div class="service-text">
+              <h3 class="service-heading">Human Advisor Support On Demand</h3>
+              <p class="service-para">Connect with highly experienced financial advisors who are ready to provide you with personalized guidance tailored to your unique financial goals and needs whenever you require support.</p>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <div class="service-box">
+            <div class="service-icon">
+              <img src="images/services/004-doular.png" alt="icon">
+            </div>
+            <div class="service-text">
+              <h3 class="service-heading">24/7 Financial Guidance</h3>
+              <p class="service-para">Access real-time financial advice anytime, from anywhere, day or night, ensuring you have expert guidance to make informed decisions whenever you need it.</p>
+            </div>
+
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  <!-- services End -->
+
+  <!-- Courses Start -->
+  <section id="blog" class="blog-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="section-heading">Latest Courses</h2>
+          <p class="section-para">Discover modern investment courses that equip you with essential knowledge and strategies for success in today’s evolving financial markets. 
+            From stocks to cryptocurrency, 
+            our courses are tailored for beginners and experienced investors alike.</p>
+        </div>
+      </div>
+      <div class="row">
+
+        <a href="https://learn.rafaah.ai/courses/financial-ratios" class="col-lg-4 col-sm-6">
+          <div class="">
+            <div class="blog-box">
+              <div class="blog-img">
+                <img src="images/blog/Financial Ratios.jpeg" class="img-fluid" alt="blog">
+              </div>
+              <div class="blog-text">
+                <div class="tags"><span>22 lessons</span><span>£19.00</span></div>
+                <h3 class="blog-heading">How to Understand Financial Indicators</h3>
+                <p class="blog-para">How to Use Financial Indicators to Evaluate Companies Before Investing in Them.</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://learn.rafaah.ai/courses/invest-as-warren-buffet" class="col-lg-4 col-sm-6">
+        <div class="">
+          <div class="blog-box">
+            <div class="blog-img">
+              <img src="images/blog/استثمر كأنك وارن بافيت.png" class="img-fluid" alt="blog">
+            </div>
+            <div class="blog-text">
+              <div class="tags"><span>87 lessons</span><span>£49.00</span></div>
+              <h3 class="blog-heading">Invest Like Warren Buffett</h3>
+              <p class="blog-para">Learn Warren Buffett's investment approach and discover how you can build wealth through value investing.</p>
+            </div>
+          </div>
+        </div>
+        </a>
+
+        <a href="https://learn.rafaah.ai/courses/options-contract" class="col-lg-4 col-sm-6">
+        <div class="d-none d-lg-block">
+          <div class="blog-box">
+            <div class="blog-img">
+              <img src="images/blog/options-contract.jpeg" class="img-fluid" alt="blog">
+            </div>
+            <div class="blog-text">
+              <div class="tags"><span>19 lessons</span><span>£1.00</span></div>
+              <h3 class="blog-heading">Options Contract</h3>
+              <p class="blog-para">Discover how to effectively utilize options contracts to maximize profits or safeguard against potential losses.</p>
+            </div>
+          </div>
+        </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- Blog End -->
+
+  <!-- reviews Start -->
+  <section id="reviews" class="reviews-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="section-heading">Customer Stories</h2>
+        </div>
+      </div>
+      <div class="row">        
+        <div class="col-lg-7">          
+          <div class="owl-carousel">
+            <div class="review-item">
+              <div class="review-details"><i class="fas fa-quote-left"></i>Ahmad, a young professional in his 30s, had always dreamed of achieving financial freedom but didn’t know where to start.
+                 After attending our investment workshop, he learned how to allocate his income wisely and invest in diversified portfolios. Within five years,
+                 Ahmad managed to build a passive income stream that allowed him to leave his stressful 9-to-5 job and pursue his passion 
+                for photography full-time.</div>
+              <div class="review-author">
+                <span class="review-img"><img src="images/reviews/user-1.png" alt="uesr" /></span>
+                <span class="review-name"> Ahmad </span>
+                <span class="review-desig">( Photographer )</span>
+              </div>
+            </div>
+            <div class="review-item">
+              <div class="review-details"><i class="fas fa-quote-left"></i> Omar, a retired engineer, wanted his savings to work for him rather than sitting idle in a bank account. 
+                Through our investment guidance, he discovered dividend-paying stocks and real estate investment trusts (REITs). Today, 
+                Omar enjoys a steady flow of passive income, enabling him to travel the world with his wife while maintaining financial security.</div>
+              <div class="review-author">
+                <span class="review-img"><img src="images/reviews/user-3.png" alt="uesr" /></span>
+                <span class="review-name"> Omar </span>
+                <span class="review-desig">( Engineer )</span>
+              </div>
+            </div>
+            <div class="review-item">
+              <div class="review-details"><i class="fas fa-quote-left"></i> Mohammed, a 28-year-old engineer, always felt stuck in a cycle of work and expenses.
+                After joining Rafaah’s investment program, he mastered smart saving strategies and built a diverse portfolio.
+                Within just three years, Mohammed turned his finances around, creating passive income streams that let him start his dream business in tech.</div>
+              <div class="review-author">
+                <span class="review-img"><img src="images/reviews/user-2.png" alt="uesr" /></span>
+                <span class="review-name"> Mohammed </span>
+                <span class="review-desig">( Engineer )</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 offset-lg-1 d-none d-lg-block">
+          <img src="images/services/002-automobile.png" class="img-fluid" alt="review" />
+        </div>
+      </div>
+    </div>
+  </section>
+ <!-- reviews End -->
+
+<!-- contact Start -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="section-heading">Get In Touch</h2>
+          <p>Have questions about investments or financial strategies? Reach out to us for personalized guidance and support.
+            We're here to help you achieve your financial goals.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 d-none d-lg-block">
+          <img src="images/contact.png" class="img-fluid" alt="blog">
+        </div>
+        <div class="col-lg-6">
+          <form class="contact-form" id="contactForm">
+            <div class="contact-form-head">
+              <h3>Send Message</h3>
+            </div>
+            <div class="contact-form-inner">
+              <div class="form-group">
+                <input type="text" class="form-control" id="name" placeholder="Name" required>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" id="email" placeholder="Email" required>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="message" placeholder="Write Your Message" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- contact End -->
+
+<!-- footer Start -->
+<section class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-widget">
+            <img src="images/logo-r.png" alt="logo" />
+            <p class="mt-4">Track your wealth effortlessly with our tools. Simplify financial planning, monitor your investments, and stay on top of your goals—all in one place.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-widget">
+            <h5>Quick Links</h5>
+            <ul>
+              <li><a href="#services"><i class="fas fa-angle-right"></i> Services</a></li>
+              <li><a href="#calculator"><i class="fas fa-angle-right"></i> Calculator</a></li>
+              <li><a href="#contact"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+              <li><a href="#reviews"><i class="fas fa-angle-right"></i> Reviews</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-widget">
+            <h5>Address</h5>
+            <p class="mt-3"><i class="fas fa-map-marker-alt"></i> Street 10, 3rd cross<br>
+              Koramagala<br>
+              0123456789<br>
+              mo7med-7sn@gmail.com</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-widget">
+            <h5>Social Connect</h5>
+            <div class="social-icons">
+              <a href="https://x.com/RafaahWealth"><i class="fab fa-facebook"></i></a>
+              <a href="https://x.com/RafaahWealth"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.linkedin.com/company/101968129/admin/dashboard/"><i class="fab fa-linkedin"></i></a>
+              <a href="https://x.com/RafaahWealth"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="footer-copyright">
+            © 2025 Rafaah.ai All Rights Reserved.<br>
+            by <a href="https://x.com/Abdou7sn" style="color: #5ae251;">Abdou7sn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- footer End -->
+
+<!-- jQuery Min JS -->
+<script src="js/jquery-min.js"></script>
+<script src="js/jquery.ui.touch-punch.min.js"></script>
+
+<!-- Popper Min JS -->
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap Min JS -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Owl Carousel Min JS -->
+<script src="js/owl.carousel.min.js"></script>
+<!-- Owl Plugins JS -->
+<script src="js/plugins.js"></script>
+<!-- Smooth scroll JS -->
+<script src="js/smoothscroll.js"></script>
+
+<!-- morris charts -->
+<script src="js/raphael-min.js"></script>
+<script src="js/morris.min.js"></script>
+<script src="js/custom-morris.js"></script>
+
+<!-- Custom JS -->
+<script src="https://cdn.jsdelivr.net/npm/autonumeric@4.6.0/dist/autoNumeric.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="js/custom.js"></script>
+<script src="js/script.js"></script>
+
+
+</body>
+
+</html>
