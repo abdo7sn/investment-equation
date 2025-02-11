@@ -710,7 +710,6 @@ const attachFormHandlers = (formType) => {
     }
 };
 
-let modal = new bootstrap.Modal(document.getElementById("emailModal"));;
 // Processor for the first model
 const setupEAForm = () => {
     // Load saved data from local storage (if any)
@@ -1142,10 +1141,6 @@ const setupEAForm = () => {
             interests: interests,
             contributions: contributions
         }));
-
-        setTimeout(() => {
-            modal.show();
-        }, 5000);
     });
 };
 
@@ -1583,10 +1578,6 @@ const setupRRForm = () => {
             interests: interests,
             contributions: contributions
         }));
-
-        setTimeout(() => {
-            modal.show();
-        }, 5000);
     });
 };
 
@@ -2088,10 +2079,6 @@ const setupILForm = () => {
             interests: interests,
             contributions: contributions
         }));
-
-        setTimeout(() => {
-            modal.show();
-        }, 5000);
     });
 };
 
@@ -2537,10 +2524,6 @@ const setupSAForm = () => {
             interests: interests,
             contributions: contributions
         }));
-
-        setTimeout(() => {
-            modal.show();
-        }, 5000);
     });
 };
 
@@ -2971,10 +2954,6 @@ const setupACForm = () => {
             interests: interests,
             contributions: contributions
         }));
-
-        setTimeout(() => {
-            modal.show();
-        }, 5000);
     });
 }
 
@@ -3003,35 +2982,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 });
-
-// Write Email
-document.getElementById("userEmail").addEventListener("input", function() {
-    let email = this.value;
-    let downloadBtn = document.getElementById("download-btn");
-    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    downloadBtn.disabled = !emailPattern.test(email);
-});
-
-// Close Popup Window
-document.querySelector('.popup-close').addEventListener('click', function () { 
-    if (modal) {
-        modal.hide();
-    }
-});
-
-// Save Email
-document.querySelector('.save-email').addEventListener('click', function () {
-    const emailInput = document.getElementById("userEmail");
-    const email = emailInput.value.trim();
-    saveEmail(email);
-    alert("Email saved successfully!");
-    emailInput.value = ""; 
-
-    modal.hide(); 
-});
-
-// Function to save email
-function saveEmail(email) {
-    console.log("Saving email:", email);
-    // Here you can send mail to server using fetch/AJAX.
-}
