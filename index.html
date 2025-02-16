@@ -233,7 +233,29 @@
     </div>
   </section>
   <!-- calculator End -->
-  
+
+  <!-- Popup Window Start -->
+  <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="emailModalLabel">Enter your email and user name to Send Calculation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="email" id="userEmail" class="form-control " placeholder="example@email.com">
+                <br>
+                <input type="text" id="userName" class="form-control " placeholder="User Name">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary popup-close" data-bs-dismiss="modal">close</button>
+                <button id="download-btn" class="btn btn-success save-email" disabled>Send</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- Popup Window End -->
+
   <!-- services Start -->
   <section id="services" class="services-section">
     <div class="container">
@@ -347,7 +369,7 @@
       </div>
     </div>
   </section>
-  <!-- Blog End -->
+  <!-- Courses End -->
 
   <!-- reviews Start -->
   <section id="reviews" class="reviews-section">
