@@ -710,6 +710,8 @@ const attachFormHandlers = (formType) => {
     }
 };
 
+let modal = new bootstrap.Modal(document.getElementById("emailModal"));
+
 // Processor for the first model
 const setupEAForm = () => {
     // Load saved data from local storage (if any)
@@ -1141,6 +1143,61 @@ const setupEAForm = () => {
             interests: interests,
             contributions: contributions
         }));
+
+        setTimeout(() => {
+            modal.show();
+        }, 5000);
+
+        // Save Email And Send calculationData
+        const saveEmailButton = document.querySelector('.save-email');
+        saveEmailButton.replaceWith(saveEmailButton.cloneNode(true)); 
+        document.querySelector('.save-email').addEventListener('click', function () {
+            const emailInput = document.getElementById("userEmail");
+            const email = emailInput.value.trim();
+            const userNameInput = document.getElementById('userName');
+            const userName = userNameInput.value.trim();
+           
+            let calculationDataEA = {
+                principal: principal,
+                years: years,
+                rate: (rate * 100).toFixed(2) + "%", 
+                additionalContribution: AdditionalContribution,
+                compoundFrequency: compound,
+                additionalContributionFrequency: Contributionfrequancy,
+                totalContribution: totalContribution,
+                totalInterest: totalInterest,
+                finalAmount: A.toFixed(2)
+            };
+
+            if(!userName){
+                alert("You must enter your username!");
+            }else{
+                fetch('https://script.google.com/macros/s/AKfycbz5jwPBIhGMVsMCo-hq3wZJHs9bcshXDHInGpWXS3JduiApq3p6gTKvkf9j9Z8c7BGuWw/exec', {
+                    method: "POST",
+                    mode: "no-cors", 
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ email: email, username: userName, calculation: calculationDataEA})
+                })
+                .then(response => console.log("Server Response:", response))
+                
+                .catch(error => console.error("Error:", error));
+    
+                alert("Results sent successfully!");
+                emailInput.value = ""; 
+            }
+            modal.hide(); 
+        });
+
+        /*
+        fetch("php/save_click.php", {
+            method: "POST"
+        })
+        .then(response => response.text())
+        .then(data => console.log(data))
+        .catch(error => console.error("Error:", error));
+        */
     });
 };
 
@@ -1578,6 +1635,52 @@ const setupRRForm = () => {
             interests: interests,
             contributions: contributions
         }));
+
+        setTimeout(() => {
+            modal.show();
+        }, 5000);
+
+        // Save Email And Send calculationData
+        const saveEmailButton = document.querySelector('.save-email');
+        saveEmailButton.replaceWith(saveEmailButton.cloneNode(true)); 
+        document.querySelector('.save-email').addEventListener('click', function () {
+            const emailInput = document.getElementById("userEmail");
+            const email = emailInput.value.trim();
+            const userNameInput = document.getElementById('userName');
+            const userName = userNameInput.value.trim();
+            let calculationDataRR = {
+                principal: principal,
+                years: years,
+                rate: (r * 100).toFixed(2) + "%", 
+                additionalContribution: AdditionalContribution,
+                compoundFrequency: 'annually',
+                additionalContributionFrequency: Contributionfrequancy,
+                totalContribution: totalContribution,
+                totalInterest: totalInterest,
+                finalAmount: final
+            };
+
+            if(!userName){
+                alert("You must enter your username!");
+            }else{
+                fetch('https://script.google.com/macros/s/AKfycbz5jwPBIhGMVsMCo-hq3wZJHs9bcshXDHInGpWXS3JduiApq3p6gTKvkf9j9Z8c7BGuWw/exec', {
+                    method: "POST",
+                    mode: "no-cors", 
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ email: email, username: userName, calculation: calculationDataRR})
+                })
+                .then(response => console.log("Server Response:", response))
+                
+                .catch(error => console.error("Error:", error));
+    
+                alert("Results sent successfully!");
+                emailInput.value = ""; 
+            }
+
+            modal.hide();
+        });
     });
 };
 
@@ -2079,6 +2182,52 @@ const setupILForm = () => {
             interests: interests,
             contributions: contributions
         }));
+
+        setTimeout(() => {
+            modal.show();
+        }, 5000);
+
+        // Save Email And Send calculationData
+        const saveEmailButton = document.querySelector('.save-email');
+        saveEmailButton.replaceWith(saveEmailButton.cloneNode(true));
+        document.querySelector('.save-email').addEventListener('click', function () {
+            const emailInput = document.getElementById("userEmail");
+            const email = emailInput.value.trim();
+            const userNameInput = document.getElementById('userName');
+            const userName = userNameInput.value.trim();
+            let calculationData = {
+                principal: principal,
+                years: t.toFixed(2),
+                rate: (rate * 100).toFixed(2) + "%", 
+                additionalContribution: AdditionalContribution,
+                compoundFrequency: compound,
+                additionalContributionFrequency: Contributionfrequancy,
+                totalContribution: totalContribution,
+                totalInterest: totalInterest,
+                finalAmount: final
+            };
+
+            if(!userName){
+                alert("You must enter your username!");
+            }else{
+                fetch('https://script.google.com/macros/s/AKfycbz5jwPBIhGMVsMCo-hq3wZJHs9bcshXDHInGpWXS3JduiApq3p6gTKvkf9j9Z8c7BGuWw/exec', {
+                    method: "POST",
+                    mode: "no-cors", 
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ email: email, username: userName, calculation: calculationData})
+                })
+                .then(response => console.log("Server Response:", response))
+                
+                .catch(error => console.error("Error:", error));
+    
+                alert("Results sent successfully!");
+                emailInput.value = ""; 
+            }
+
+            modal.hide(); 
+        });
     });
 };
 
@@ -2524,9 +2673,56 @@ const setupSAForm = () => {
             interests: interests,
             contributions: contributions
         }));
+
+        setTimeout(() => {
+            modal.show();
+        }, 5000);
+
+        // Save Email And Send calculationData
+        const saveEmailButton = document.querySelector('.save-email');
+        saveEmailButton.replaceWith(saveEmailButton.cloneNode(true));
+        document.querySelector('.save-email').addEventListener('click', function () {
+            const emailInput = document.getElementById("userEmail");
+            const email = emailInput.value.trim();
+            const userNameInput = document.getElementById('userName');
+            const userName = userNameInput.value.trim();
+            let calculationData = {
+                principal: principalShow,
+                years: years,
+                rate: (rate * 100).toFixed(2) + "%", 
+                additionalContribution: AdditionalContribution,
+                compoundFrequency: compound,
+                additionalContributionFrequency: Contributionfrequancy,
+                totalContribution: totalContribution,
+                totalInterest: totalInterest,
+                finalAmount: final
+            };
+
+            if(!userName){
+                alert("You must enter your username!");
+            }else{
+                fetch('https://script.google.com/macros/s/AKfycbz5jwPBIhGMVsMCo-hq3wZJHs9bcshXDHInGpWXS3JduiApq3p6gTKvkf9j9Z8c7BGuWw/exec', {
+                    method: "POST",
+                    mode: "no-cors", 
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ email: email, username: userName, calculation: calculationData})
+                })
+                .then(response => console.log("Server Response:", response))
+                
+                .catch(error => console.error("Error:", error));
+    
+                alert("Results sent successfully!");
+                emailInput.value = ""; 
+            }
+
+            modal.hide(); 
+        });
     });
 };
 
+// Processor for the fifth model
 const setupACForm = () => {
     // Load saved data from local storage (if any)
     const savedPrincipalAC = localStorage.getItem('principalAC');
@@ -2954,6 +3150,51 @@ const setupACForm = () => {
             interests: interests,
             contributions: contributions
         }));
+
+        setTimeout(() => {
+            modal.show();
+        }, 5000);
+
+        // Save Email And Send calculationData
+        const saveEmailButton = document.querySelector('.save-email');
+        saveEmailButton.replaceWith(saveEmailButton.cloneNode(true));
+        document.querySelector('.save-email').addEventListener('click', function () {
+            const emailInput = document.getElementById("userEmail");
+            const email = emailInput.value.trim();
+            const userNameInput = document.getElementById('userName');
+            const userName = userNameInput.value.trim();
+            let calculationData = {
+                principal: principal,
+                years: years,
+                rate: (rate * 100).toFixed(2) + "%", 
+                additionalContribution: AdditionalContribution.toFixed(2),
+                compoundFrequency: compound,
+                additionalContributionFrequency: Contributionfrequancy,
+                totalContribution: totalContribution,
+                totalInterest: totalInterest,
+                finalAmount: target
+            };
+            
+            if(!userName){
+                alert("You must enter your username!");
+            }else{
+                fetch('https://script.google.com/macros/s/AKfycbz5jwPBIhGMVsMCo-hq3wZJHs9bcshXDHInGpWXS3JduiApq3p6gTKvkf9j9Z8c7BGuWw/exec', {
+                    method: "POST",
+                    mode: "no-cors", 
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ email: email, username: userName, calculation: calculationData})
+                })
+                .then(response => console.log("Server Response:", response))
+                
+                .catch(error => console.error("Error:", error));
+    
+                alert("Results sent successfully!");
+                emailInput.value = ""; 
+            }
+            modal.hide(); 
+        });
     });
 }
 
@@ -2982,3 +3223,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 });
+
+// Write Email Right
+document.getElementById("userEmail").addEventListener("input", function() {
+    let email = this.value;
+    let downloadBtn = document.getElementById("download-btn");
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    downloadBtn.disabled = !emailPattern.test(email);
+});
+
+// Close Popup Window
+document.querySelector('.popup-close').addEventListener('click', function () { 
+    if (modal) {
+        modal.hide();
+    }
+});
+
