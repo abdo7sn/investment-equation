@@ -406,7 +406,7 @@ html .ui-button.ui-state-disabled:active {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	transition: all 0.3s ease-in-out;
 	background: linear-gradient(135deg, #213884, #1d44c5);
-
+	margin-bottom: 10px;
 }
 
 .custom-btn:hover {
