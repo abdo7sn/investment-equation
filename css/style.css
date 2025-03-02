@@ -181,6 +181,7 @@ section {
 
 #navbar .nav-link i {
 	color: #213884;
+	font-size: 14px;
 }
 
 #navbar .nav-item {
@@ -274,6 +275,39 @@ p.header-subtitle {
 	margin-bottom: 30px;
 }
 
+.custom-buttons {
+	display: flex;
+	gap: 15px;
+	margin-bottom: 20px;
+	justify-content: left;
+}
+
+.custom-button {
+	text-decoration: none;
+	background-color: #2D1E6B;
+	color: white;
+	font-weight: bold;
+	padding: 12px 0;
+	border-radius: 50px;
+	transition: all 0.3s ease-in-out;
+	font-size: 16px;
+	border: 2px solid transparent;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	width: 240px; 
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50px; 
+}
+
+.custom-button:hover {
+	background-color: white;
+	color: #2D1E6B;
+	border: 2px solid #2D1E6B;
+	transform: scale(1.05);
+	box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
 /*======== Custom UI plugin =========*/
 .ui-state-default,
 .ui-widget-content .ui-state-default,
@@ -817,6 +851,17 @@ p.section-para {
 	.navbar-nav{
 		align-items: start;
 	}
+
+	.custom-buttons {
+        flex-direction: column;
+        align-items: left; 
+    }
+
+    .custom-button {
+        width: 90%; 
+        max-width: 300px; 
+    }
+
 	.calculator-section, .services-section, .blog-section, .reviews-section, .contact-section{
 		padding: 60px 0;
 	}
@@ -835,6 +880,17 @@ p.section-para {
 	.header-title{
 		font-size: 30px;
 	}
+
+	.custom-buttons {
+        flex-direction: column; 
+        align-items: left; 
+    }
+
+    .custom-button {
+        width: 90%; 
+        max-width: 300px;
+    }
+
 	.blog-text .tags span:nth-child(2) {
 		display: inline-block;
 		margin-top: 10px;
