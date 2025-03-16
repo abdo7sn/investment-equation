@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="UWS">
+    <title>Rafaah | Retirement Calculator</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo-r.png">
+
+    <!-- Google Fonts - Montserrat and Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom Font Icons CSS -->
+    <link href="vendor/icomoon/css/iconfont.min.css" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style_retirement.css" rel="stylesheet">
+
+    <!-- Plugins CSS -->
+    <link href="css/plugins.css" rel="stylesheet">
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+</head>
+
+<body>
+    <!-- Pre Loader -->
+    <div id="dvLoading"></div>
+    <!-- Page -->
+    <div id="page">
+        <!-- Navigation Start -->
+        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-header navbar-mobile">
+            <div class="navbar-container container">
+                <div class="navbar-brand">
+                    <a class="navbar-brand-logo" href="file:///C:/wamp64/www/investment_equation/index.html">
+                        <img src="images/logo.png" alt="logo">
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse justify-content-around" id="navbarNav">
+                    <ul class="navbar-nav menu-navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="file:///C:/wamp64/www/investment_equation/index.html"><i class="fas fa-home"></i> Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="file:///C:/wamp64/www/investment_equation/index.html#calculator"><i class="fas fa-chart-line"></i> Compound Interest</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="file:///C:/wamp64/www/investment_equation/riskassessment.html"><i class="fas fa-shield-alt"></i> Risk Assessment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-umbrella-beach"></i> Retirement</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link learn-more-btn" href="file:///C:/wamp64/www/investment_equation/index.html#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navigation End -->
+
+        <!-- JavaScript Disabled Fallback -->
+        <noscript>
+            <div class="container">
+                <h1>JavaScript is not available.</h1>
+                <p>We’ve detected that JavaScript is disabled in this browser. Please enable JavaScript or switch to a supported browser to continue using this site. You can see a list of supported browsers in our Help Center.</p>
+                <a href="#">Help Center</a>
+            </div>
+        </noscript>
+
+         <!-- Introduction Section -->
+         <section class="intro-section container">
+            <h1 class="section-title">Retirement Plan Calculator</h1>
+            <p class="intro-text">Find out how much you need in your portfolio to retire comfortably and securely! Use our calculator to estimate your required savings based on your monthly expenses, current age, expected return rate, and any additional income sources. Plan your financial future with confidence and start your retirement journey today!</p>
+            <p class="disclaimer">*Note: Some of the products on this page are from our advertising partners. Learn more about how we make money.</p>
+        </section>
+
+        <!-- Calculator Section Start -->
+        <section id="calculator" class="calculatorsection" style="padding: 0px;">
+            <div class="calculator">
+                <div class="card">
+                    <div class="input-section">
+                        <div class="input-group">
+                            <label for="current-age"><i class="fas fa-user"></i> What's your current age?</label>
+                            <input type="number" id="current-age" min="0" placeholder="24">
+                        </div>
+                        <div class="input-group">
+                            <label for="retirement-age"><i class="fas fa-umbrella-beach"></i> What age do you plan to retire? <span class="info-icon" title="The age you plan to stop working"><i class="fas fa-info-circle"></i></span></label>
+                            <input type="number" id="retirement-age" min="0" placeholder="68">
+                        </div>
+                        <div class="input-group">
+                            <label for="saved-so-far"><i class="fas fa-piggy-bank"></i> How much have you saved for retirement so far? <span class="info-icon" title="Your current retirement savings"><i class="fas fa-info-circle"></i></span></label>
+                            <input type="text" id="saved-so-far" placeholder="$10,000">
+                        </div>
+                        <div class="input-group">
+                            <label for="retirement-expense"><i class="fas fa-wallet"></i> How much money do you plan to spend each mounth in retirement? <span class="info-icon" title="Your expected annual expenses in retirement"><i class="fas fa-info-circle"></i></span></label>
+                            <input type="text" id="retirement-expense" placeholder="$5,000">
+                        </div>
+                        <button id="calculateBtn" onclick="show()">Calculate</button>
+                    </div>
+                    <div class="result-section">
+                        <div class="total-savings">
+                            <h2>Your Total Savings at Retirement<span class="info-icon" title="Calculated using the 4% rule."><i class="fas fa-info-circle"></i></span></h2>
+                            <p id="total-savings-amount">$0</p>
+                        </div>
+                        <div class="savings-status">
+                            <h2 class="title">Your Monthly Contribution and Retirement plan<span class="info-icon" title="You must enter your username and email to get the results."><i class="fas fa-info-circle"></i></span></h2>
+                            <div id="results-popup" class="popup-overlay">
+                                <div class="popup-content">
+                                    <div class="popup-body">
+                                        <form class="results-form" id="resultsForm">
+                                            <input id="userName" type="text" placeholder="Username" required>
+                                            <input id="userEmail" type="email" placeholder="Email Address" required>
+                                            <button type="submit" class="submit-btn" id="submitBtn">Get Results</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Calculator Section End -->
+
+        <!-- Footer Start -->
+        <section class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer-widget">
+                            <img src="images/logo-r.png" alt="logo" />
+                            <p class="mt-4">Track your wealth effortlessly with our tools. Simplify financial planning, monitor your investments, and stay on top of your goals—all in one place.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h5>Quick Links</h5>
+                            <ul>
+                                <li><a href="#services"><i class="fas fa-angle-right"></i> Services</a></li>
+                                <li><a href="#calculator"><i class="fas fa-angle-right"></i> Calculator</a></li>
+                                <li><a href="#contact"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                                <li><a href="#reviews"><i class="fas fa-angle-right"></i> Reviews</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h5>Social Connect</h5>
+                            <div class="social-icons">
+                                <a href="https://x.com/RafaahWealth"><img src="https://img.icons8.com/?size=100&id=de4vjQ6J061l&format=png&color=FFFFFF" width="30" style="vertical-align: middle; margin-left: 50px;"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-copyright">
+                            © 2025 Rafaah.ai All Rights Reserved.<br>
+                            by <a href="https://x.com/Abdou7sn" style="color: #5ae251;">Abdou7sn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer End -->
+    </div>
+
+    <!-- jQuery Min JS -->
+    <script src="js/jquery-min.js"></script>
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- Popper Min JS -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap Min JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Owl Carousel Min JS -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- Owl Plugins JS -->
+    <script src="js/plugins.js"></script>
+    <!-- Smooth scroll JS -->
+    <script src="js/smoothscroll.js"></script>
+
+    <!-- Morris charts -->
+    <script src="js/raphael-min.js"></script>
+    <script src="js/morris.min.js"></script>
+    <script src="js/custom-morris.js"></script>
+
+    
+
+    <!-- AutoNumeric for currency formatting -->
+    <script src="https://cdn.jsdelivr.net/npm/autonumeric@4.6.0/dist/autoNumeric.min.js"></script>
+    <!-- Chart.js for the graph -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- EmailJS (if needed) -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <!-- Chart.js Datalabels Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <!-- Custom JS -->
+    <script src="js/custom.js"></script>
+    <!-- Retirement Calculator JS -->
+    <script src="js/retirement/script_retirement.js"></script>
+</body>
+
+</html>
