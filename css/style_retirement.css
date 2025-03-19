@@ -196,6 +196,7 @@ button:hover {
     text-align: center;
     border-radius: 8px;
     margin-bottom: 1.5rem;
+    border-left: 4px solid #2980b9;
 }
 
 .total-savings h2 {
@@ -215,20 +216,19 @@ button:hover {
 
 /* Enhanced Professional Styling */
 .savings-status {
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     background: #e8f4f8;
     padding: 1.5rem;
-    width: 100%;
+    text-align: center;
     border-radius: 8px;
     margin-bottom: 1.5rem;
+    border-left: 4px solid #2980b9;
 }
 
 .title {
     color: #1a2b49;
-    font-size: 28px;
+    font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 25px;
+    margin: 0 0 0.5rem;
     text-align: center;
     letter-spacing: 0.5px;
 }
@@ -256,6 +256,52 @@ button:hover {
 .results-body {
     padding: 25px;
     background: #f9fafb;
+}
+
+/* Updated CSS for form-intro-text with Perfect Centering */
+.form-intro-text {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e0e0e0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center the content */
+    align-items: center; /* Horizontally center the content */
+    text-align: center; /* Ensure text is centered */
+    min-height: 120px; /* Ensure enough space for vertical centering */
+}
+
+.form-intro-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: #2980b9;
+    border-radius: 2px;
+}
+
+.form-intro-text p {
+    font-family: 'Arial', sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    color: #4a5568;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 10px;
+    max-width: 90%; /* Prevent text from stretching too wide */
+}
+
+.form-intro-text strong {
+    color: #2980b9;
+    font-weight: 700;
+    font-style: italic;
 }
 
 .results-form {
@@ -289,6 +335,15 @@ button:hover {
 
 .results-form input::placeholder {
     color: #9ca3af;
+}
+
+.results-form {
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #2980b9;
+    box-shadow: 4px 2px 5px 2px rgba(0, 0, 0, 0.1);
 }
 
 .submit-btn {
@@ -326,62 +381,6 @@ button:hover {
     box-shadow: none;
 }
 
-.retirement-summary {
-    padding: 1.5rem;
-    border-radius: 8px;
-}
-
-.retirement-summary h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #2c3e50;
-    margin-bottom: 1rem;
-}
-
-.retirement-summary p {
-    font-size: 1rem;
-    color: #7f8c8d;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
-#retirement-chart {
-    max-width: 100%;
-    height: 250px;
-}
-
-/* Suggestions Styling */
-.suggestions {
-    background-color: #fff3f3; /* Light red background for warning */
-    padding: 1.5rem;
-    border-radius: 10px;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    border-left: 4px solid #e74c3c; /* Red border for emphasis */
-    display: none; /* Initially hidden, controlled by JavaScript */
-}
-
-.suggestion-intro {
-    font-size: 1rem;
-    color: #1a252f;
-    line-height: 1.6;
-    margin: 0 0 1rem 0; /* Add spacing below the intro text */
-    text-align: left;
-}
-
-.suggestion-list {
-    list-style-type: disc; /* Ensure bullet points (dots) are used */
-    padding-left: 20px; /* Indent the list for proper alignment */
-    margin: 0;
-}
-
-.suggestion-list li {
-    font-size: 1rem;
-    color: #1a252f;
-    line-height: 1.6;
-    margin-bottom: 0.5rem; /* Add spacing between list items */
-}
 
 /* Removed .suggestion-text br rule since we're using a list now */
 
