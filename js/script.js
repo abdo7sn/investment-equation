@@ -1146,7 +1146,7 @@ const setupEAForm = () => {
 
         setTimeout(() => {
             modal.show();
-        }, 5000);
+        }, 1000);
 
         // Save Email And Send calculationData
         const saveEmailButton = document.querySelector('.save-email');
@@ -1638,7 +1638,7 @@ const setupRRForm = () => {
 
         setTimeout(() => {
             modal.show();
-        }, 5000);
+        }, 1000);
 
         // Save Email And Send calculationData
         const saveEmailButton = document.querySelector('.save-email');
@@ -2185,7 +2185,7 @@ const setupILForm = () => {
 
         setTimeout(() => {
             modal.show();
-        }, 5000);
+        }, 1000);
 
         // Save Email And Send calculationData
         const saveEmailButton = document.querySelector('.save-email');
@@ -2676,7 +2676,7 @@ const setupSAForm = () => {
 
         setTimeout(() => {
             modal.show();
-        }, 5000);
+        }, 1000);
 
         // Save Email And Send calculationData
         const saveEmailButton = document.querySelector('.save-email');
@@ -3153,7 +3153,7 @@ const setupACForm = () => {
 
         setTimeout(() => {
             modal.show();
-        }, 5000);
+        }, 1000);
 
         // Save Email And Send calculationData
         const saveEmailButton = document.querySelector('.save-email');
