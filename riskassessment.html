@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<title>Rafaah | Risk Assessment</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="UWS">
+    <title>Rafaah | Retirement Calculator</title>
+
     <!-- Favicon -->
-     <link rel="shortcut icon" type="image/x-icon" href="images/logo-r.png">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/animate.min.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/style_risk.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo-r.png">
+
+    <!-- Google Fonts - Montserrat and Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CSS -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom Font Icons CSS -->
+    <link href="vendor/icomoon/css/iconfont.min.css" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style_retirement.css" rel="stylesheet">
+
     <!-- Plugins CSS -->
     <link href="css/plugins.css" rel="stylesheet">
     <link href="css/jquery-ui.css" rel="stylesheet">
@@ -20,442 +33,196 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/autonumeric@4.6.0/dist/autoNumeric.min.js"></script>
-
 </head>
 
 <body>
     <!-- Pre Loader -->
     <div id="dvLoading"></div>
-    <!-- Navigation Start -->
-    <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-header navbar-mobile">
-        <div class="navbar-container container">
-          <div class="navbar-brand">
-            <a class="navbar-brand-logo" href="index.html">
-              <img src="images/logo.png" alt="logo">
-            </a>
-          </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-          </button>
-          <div class="collapse navbar-collapse justify-content-around" id="navbarNav">
-            <ul class="navbar-nav menu-navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="index.html#calculater"><i class="fas fa-chart-line"></i> Compound Interest</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-shield-alt"></i> Risk Assessment</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="retirement.html"><i class="fas fa-umbrella-beach"></i> Retirement</a>
-              </li>
-            </ul>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link learn-more-btn" href="index.html#contact">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-    </nav>
-    <!-- Navigation End -->
-    
-    <!-- Wrapper Clearfix Start -->
-	<div class="wrapper clearfix">
-		<div class="wizard-part-title">
-			<h3> Risk Assessment</h3>
-		</div>
-		<!--multisteps-form-->
-		<div class="multisteps-form">
-			<!--progress bar-->
-			<div class="row">
-				<div class="col-12 col-lg-12 ml-auto mr-auto mb-5 mt-5">
-					<div class="multisteps-form__progress">
-						<button class="multisteps-form__progress-btn js-active">Question 1</button>
-						<button class="multisteps-form__progress-btn">Question 2</button>
-						<button class="multisteps-form__progress-btn">Question 3</button>
-						<button class="multisteps-form__progress-btn">Question 4</button>
-						<button class="multisteps-form__progress-btn">Question 5</button>
-					</div>
-				</div>
-			</div>
-			<!--form panels-->
-			<div class="row">
-				<div class="col-12 col-lg-12 m-auto">
-					<form class="multisteps-form__form clearfix" action="#" method="post" id="wizard">
-						<!--single form panel 1-->
-						<div class="multisteps-form__panel js-active" data-animation="slideVert">
-							<div class="inner pb-100">
-								<div class="wizard-topper">
-									<div class="wizard-progress">
-										<span>0 of 5 Completed</span>
-										<div class="progress">
-											<div class="progress-bar" style="width: 0%;">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="wizard-content-item text-center">
-									<h2>Question 1</h2>
-									<p>How would you describe your investment goals?</p>
-								</div>
-								<div class="identity-option wizard-content-form">
-                                    <ul>
-                                        <li>
-                                            <label>
-                                                <input type="radio" class="identity-check" name="investment-optionIG" id="IG1">
-                                                <span class="identity-label"></span>Preserve my capital with minimal risk, even if it means lower returns.
-                                                <span class="checkmark-border"></span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label>
-                                                <input type="radio" class="identity-check" name="investment-optionIG" id="IG2">
-                                                <span class="identity-label"></span>Grow my wealth steadily over time, accepting moderate risk for moderate returns.
-                                                <span class="checkmark-border"></span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label>
-                                                <input type="radio" class="identity-check" name="investment-optionIG" id="IG3">
-                                                <span class="identity-label"></span>Maximize my returns, even if it means taking significant risks.
-                                                <span class="checkmark-border"></span>
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </div>
-								<div class="wizard-footer">
-									<div class="actions">
-										<ul>
-											<li><span class="js-btn-next" title="NEXT">NEXT <i class="fa fa-arrow-right"></i></span></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--single form panel 2-->
-						<div class="multisteps-form__panel" data-animation="slideVert">
-							<div class="inner pb-100">
-								<div class="wizard-topper">
-									<div class="wizard-progress">
-										<span>1 of 5 Completed</span>
-										<div class="progress">
-											<div class="progress-bar" style="width: 20%;"></div>
-										</div>
-									</div>
-								</div>
-								<div class="wizard-content-item text-center">
-									<h2>Question 2</h2>
-									<p>How would you react if your investment lost 20% of its value in a short period?</p>
-								</div>
-								<div class="identity-option wizard-content-form">
-                                    <ul>
-                                        <li>
-                                            <label>
-                                                <input type="radio" class="identity-check" name="investment-optionIL" id="IL1">
-                                                <span class="identity-label"></span>Sell all my investments to avoid further losses.
-                                                <span class="checkmark-border"></span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label>
-                                                <input type="radio" class="identity-check" name="investment-optionIL" id="IL2">
-                                                <span class="identity-label"></span>Hold onto my investments and wait for them to recover.
-                                                <span class="checkmark-border"></span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label>
-                                                <input type="radio" class="identity-check" name="investment-optionIL" id="IL3">
-                                                <span class="identity-label"></span>Invest more to take advantage of the lower prices.
-                                                <span class="checkmark-border"></span>
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </div>
-								<div class="wizard-footer">
-									<div class="actions">
-										<ul>
-                                            <li><span class="js-btn-prev" title="BACK"><i class="fa fa-arrow-left"></i> BACK</span></li>
-
-											<li><span class="js-btn-next" title="NEXT">NEXT <i class="fa fa-arrow-right"></i></span></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--single form panel 3-->
-						<div class="multisteps-form__panel" data-animation="slideVert">
-							<div class="inner pb-100">
-								<div class="wizard-topper">
-									<div class="wizard-progress">
-										<span>2 of 5 Completed</span>
-										<div class="progress">
-											<div class="progress-bar" style="width: 40%;"></div>
-										</div>
-									</div>
-								</div>
-								<div class="wizard-content-item text-center">
-									<h2>Question 3</h2>
-									<p>What is your investment time horizon?</p>
-								</div>
-								<div class="identity-option wizard-content-form">
-                                    <ul>
-                                        <li>
-                                            <label>
-                                                <input type="radio" class="identity-check" name="investment-optionIT" id="IT1">
-                                                <span class="identity-label"></span>Less than 3 years (e.g., saving for a short-term goal).
-                                                <span class="checkmark-border"></span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label>
-                                                <input type="radio" class="identity-check" name="investment-optionIT" id="IT2">
-                                                <span class="identity-label"></span>3–7 years (e.g., saving for a medium-term goal).
-                                                <span class="checkmark-border"></span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label>
-                                                <input type="radio" class="identity-check" name="investment-optionIT" id="IT3">
-                                                <span class="identity-label"></span>More than 7 years (e.g., retirement planning). 
-                                                <span class="checkmark-border"></span>
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </div>
-								<div class="wizard-footer">
-									<div class="actions">
-										<ul>
-                                            <li><span class="js-btn-prev" title="BACK"><i class="fa fa-arrow-left"></i> BACK</span></li>
-
-											<li><span class="js-btn-next" title="NEXT">NEXT <i class="fa fa-arrow-right"></i></span></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--single form panel 4-->
-						<div class="multisteps-form__panel" data-animation="slideVert">
-							<div class="inner pb-100">
-								<div class="wizard-topper">
-									<div class="wizard-progress">
-										<span>3 of 5 Completed</span>
-										<div class="progress">
-											<div class="progress-bar" style="width: 60%;"></div>
-										</div>
-									</div>
-								</div>
-								<div class="wizard-content-item text-center">
-									<h2>Question 4</h2>
-									<p>How familiar are you with investing?</p>
-								</div>
-								<div class="identity-option wizard-content-form">
-                                    <ul>
-                                        <li>
-                                            <label>
-                                                <input type="radio" class="identity-check" name="investment-optionFI" id="FI1">
-                                                <span class="identity-label"></span>I have little to no experience with investing.
-                                                <span class="checkmark-border"></span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label>
-                                                <input type="radio" class="identity-check" name="investment-optionFI" id="FI2">
-                                                <span class="identity-label"></span>I have some experience and understand basic concepts.
-                                                <span class="checkmark-border"></span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label>
-                                                <input type="radio" class="identity-check" name="investment-optionFI" id="FI3">
-                                                <span class="identity-label"></span>I am very experienced and comfortable with complex investments.
-                                                <span class="checkmark-border"></span>
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </div>
-								<div class="wizard-footer">
-									<div class="actions">
-										<ul>
-                                            <li><span class="js-btn-prev" title="BACK"><i class="fa fa-arrow-left"></i> BACK</span></li>
-
-											<li><span class="js-btn-next" title="NEXT">NEXT <i class="fa fa-arrow-right"></i></span></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--single form panel 5-->
-						<div class="multisteps-form__panel" data-animation="slideVert">
-							<div class="inner pb-100">
-								<div class="wizard-topper">
-									<div class="wizard-progress" id="wizard-progressID">
-										<span>4 of 5 Completed</span>
-										<div class="progress" id="progressID">
-											<div class="progress-bar" style="width: 80%;"></div>
-										</div>
-									</div>
-								</div>
-								<div class="wizard-content-item text-center">
-									<h2>Question 5</h2>
-									<p> What percentage of your income are you willing to invest in higher-risk assets?</p>
-								</div>
-								<div class="identity-option wizard-content-form">
-                                    <ul>
-                                        <li>
-                                            <label>
-                                                <input type="radio" class="identity-check" name="investment-optionIH" id="IH1">
-                                                <span class="identity-label"></span>0–10% (I prefer safer investments).
-                                                <span class="checkmark-border"></span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label>
-                                                <input type="radio" class="identity-check" name="investment-optionIH" id="IH2">
-                                                <span class="identity-label"></span>11–30% (I am willing to take some risk). 
-                                                <span class="checkmark-border"></span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label>
-                                                <input type="radio" class="identity-check" name="investment-optionIH" id="IH3">
-                                                <span class="identity-label"></span>More than 30% (I am comfortable with significant risk).
-                                                <span class="checkmark-border"></span>
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </div>
-								<div class="wizard-footer">
-									<div class="actions">
-										<ul>
-                                            <li><span class="js-btn-prev" title="BACK"><i class="fa fa-arrow-left"></i> BACK</span></li>
-                                            <li><button type="submit" id="submit-form" title="NEXT">SUMBIT <i class="fa fa-arrow-right"></i></button></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-    <!-- Wrapper Clearfix End -->
-
-    <!-- Popup Window Start -->
-    <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="emailModalLabel">Enter your email and user name to Send Your Score</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <!-- Page -->
+    <div id="page">
+        <!-- Navigation Start -->
+        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-header navbar-mobile">
+            <div class="navbar-container container">
+                <div class="navbar-brand">
+                    <a class="navbar-brand-logo" href="file:///C:/wamp64/www/investment_equation/index.html">
+                        <img src="images/logo.png" alt="logo">
+                    </a>
                 </div>
-                <div class="modal-body">
-                    <input type="email" id="userEmail" class="form-control " placeholder="example@email.com">
-                    <br>
-                    <input type="text" id="userName" class="form-control " placeholder="User Name">
-                </div>
-
-                <div class="alert alert-warning d-flex align-items-center mx-3" role="alert">
-                <i class="bi bi-exclamation-circle-fill me-2" style="margin-right: 3px;"></i>
-                <div>
-                    <strong>Important:</strong> Please check you Junk email box!
-                </div>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary popup-close" data-bs-dismiss="modal">close</button>
-                    <button id="download-btn" class="btn btn-success save-email" disabled>Send</button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse justify-content-around" id="navbarNav">
+                    <ul class="navbar-nav menu-navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="file:///C:/wamp64/www/investment_equation/index.html"><i class="fas fa-home"></i> Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="file:///C:/wamp64/www/investment_equation/index.html#calculator"><i class="fas fa-chart-line"></i> Compound Interest</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="file:///C:/wamp64/www/investment_equation/riskassessment.html"><i class="fas fa-shield-alt"></i> Risk Assessment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-umbrella-beach"></i> Retirement</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link learn-more-btn" href="file:///C:/wamp64/www/investment_equation/index.html#contact">Contact</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
+        </nav>
+        <!-- Navigation End -->
+
+        <!-- JavaScript Disabled Fallback -->
+        <noscript>
+            <div class="container">
+                <h1>JavaScript is not available.</h1>
+                <p>We’ve detected that JavaScript is disabled in this browser. Please enable JavaScript or switch to a supported browser to continue using this site. You can see a list of supported browsers in our Help Center.</p>
+                <a href="#">Help Center</a>
+            </div>
+        </noscript>
+
+         <!-- Introduction Section -->
+         <section class="intro-section container">
+            <h1 class="section-title">Retirement Plan Calculator</h1>
+            <p class="intro-text">Find out how much you need in your portfolio to retire comfortably and securely! Use our calculator to estimate your required savings based on your monthly expenses, current age, expected return rate, and any additional income sources. Plan your financial future with confidence and start your retirement journey today!</p>
+            <p class="disclaimer">*Note: Some of the products on this page are from our advertising partners. Learn more about how we make money.</p>
+        </section>
+
+        <!-- Calculator Section Start -->
+        <section id="calculator" class="calculatorsection" style="padding: 0px;">
+            <div class="calculator">
+                <div class="card">
+                    <div class="input-section">
+                        <div class="input-group">
+                            <label for="current-age"><i class="fas fa-user"></i> What's your current age?</label>
+                            <input type="number" id="current-age" min="0" placeholder="24">
+                        </div>
+                        <div class="input-group">
+                            <label for="retirement-age"><i class="fas fa-umbrella-beach"></i> What age do you plan to retire? <span class="info-icon" title="The age you plan to stop working"><i class="fas fa-info-circle"></i></span></label>
+                            <input type="number" id="retirement-age" min="0" placeholder="68">
+                        </div>
+                        <div class="input-group">
+                            <label for="saved-so-far"><i class="fas fa-piggy-bank"></i> How much have you saved for retirement so far? <span class="info-icon" title="Your current retirement savings"><i class="fas fa-info-circle"></i></span></label>
+                            <input type="text" id="saved-so-far" placeholder="$10,000">
+                        </div>
+                        <div class="input-group">
+                            <label for="retirement-expense"><i class="fas fa-wallet"></i> How much money do you plan to spend each mounth in retirement? <span class="info-icon" title="Your expected annual expenses in retirement"><i class="fas fa-info-circle"></i></span></label>
+                            <input type="text" id="retirement-expense" placeholder="$5,000">
+                        </div>
+                        <button id="calculateBtn" onclick="show()">Calculate</button>
+                    </div>
+                    <div class="result-section">
+                        <!-- Existing Results Section -->
+                        <div class="total-savings">
+                            <h2>Your Total Savings at Retirement<span class="info-icon" title="Calculated using the 4% rule."><i class="fas fa-info-circle"></i></span></h2>
+                        </div>
+                        <div class="savings-status">
+                            <h2 class="title">Your Monthly Contribution and Retirement Plan<span class="info-icon" title="You must enter your username and email to get the results."><i class="fas fa-info-circle"></i></span></h2>
+                        </div>
+                        <div id="results-popup" class="popup-overlay">
+                            <div class="popup-content">
+                                <div class="popup-body">
+                                    <!-- Form -->
+                                    <form class="results-form" id="resultsForm">
+                                        <!-- Introductory Text Before the Form -->
+                                        <div class="form-intro-text">
+                                            <p>Enter your Email, So we will can send you your <strong>Retirement Plan</strong> (<strong>Final Amount</strong> and <strong>Monthly Contribution</strong>).</p>
+                                        </div>
+                                        <input id="userName" type="text" placeholder="Name" required>
+                                        <input id="userEmail" type="email" placeholder="Email Address" required>
+                                        <button type="submit" class="submit-btn" id="submitBtn">Get Results</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Calculator Section End -->
+
+        <!-- Footer Start -->
+        <section class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer-widget">
+                            <img src="images/logo-r.png" alt="logo" />
+                            <p class="mt-4">Track your wealth effortlessly with our tools. Simplify financial planning, monitor your investments, and stay on top of your goals—all in one place.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h5>Quick Links</h5>
+                            <ul>
+                                <li><a href="#services"><i class="fas fa-angle-right"></i> Services</a></li>
+                                <li><a href="#calculator"><i class="fas fa-angle-right"></i> Calculator</a></li>
+                                <li><a href="#contact"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                                <li><a href="#reviews"><i class="fas fa-angle-right"></i> Reviews</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            <h5>Social Connect</h5>
+                            <div class="social-icons">
+                                <a href="https://x.com/RafaahWealth"><img src="https://img.icons8.com/?size=100&id=de4vjQ6J061l&format=png&color=FFFFFF" width="30" style="vertical-align: middle; margin-left: 50px;"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-copyright">
+                            © 2025 Rafaah.ai All Rights Reserved.<br>
+                            by <a href="https://x.com/Abdou7sn" style="color: #5ae251;">Abdou7sn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer End -->
     </div>
-    <!-- Popup Window End -->
-
-    <!-- footer Start -->
-    <section class="footer">
-        <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6">
-            <div class="footer-widget">
-                <img src="images/logo-r.png" alt="logo" />
-                <p class="mt-4">Track your wealth effortlessly with our tools. Simplify financial planning, monitor your investments, and stay on top of your goals—all in one place.
-                </p>
-            </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-            <div class="footer-widget">
-                <h5>Quick Links</h5>
-                <ul>
-                <li><a href="#services"><i class="fas fa-angle-right"></i> Services</a></li>
-                <li><a href="#calculator"><i class="fas fa-angle-right"></i> Calculator</a></li>
-                <li><a href="#contact"><i class="fas fa-angle-right"></i> Contact Us</a></li>
-                <li><a href="#reviews"><i class="fas fa-angle-right"></i> Reviews</a></li>
-                </ul>
-            </div>
-            </div>
-            
-            <div class="col-lg-3 col-md-6">
-            <div class="footer-widget">
-                <h5>Social Connect</h5>
-                <div class="social-icons">
-                
-                <a href="https://x.com/RafaahWealth"><img src="https://img.icons8.com/?size=100&id=de4vjQ6J061l&format=png&color=FFFFFF" width="30" style="vertical-align: middle; margin-left: 50px;"></a>
-                
-                </div>
-            </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-            <div class="footer-copyright">
-                © 2025 Rafaah.ai All Rights Reserved.<br>
-                by <a href="https://x.com/Abdou7sn" style="color: #5ae251;">Abdou7sn</a>
-            </div>
-            </div>
-        </div>
-        </div>
-    </section>
-    <!-- footer End -->
-
-    <script src="js/rick/jquery-3.3.1.min.js"></script>
-	<script src="js/rick/popper.min.js"></script>
-	<script src="js/rick/bootstrap.min.js"></script>
-	<script src="js/rick/switch.js"></script>
-	<script src="js/rick/script_risk.js"></script>
-	<script>
-		$("#files").change(function() {
-			filename = this.files[0].name
-			console.log(filename);
-		});
-	</script>
 
     <!-- jQuery Min JS -->
     <script src="js/jquery-min.js"></script>
     <script src="js/jquery.ui.touch-punch.min.js"></script>
 
+    <!-- Popper Min JS -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap Min JS -->
+    <script src="js/bootstrap.min.js"></script>
     <!-- Owl Carousel Min JS -->
     <script src="js/owl.carousel.min.js"></script>
     <!-- Owl Plugins JS -->
     <script src="js/plugins.js"></script>
     <!-- Smooth scroll JS -->
-    <!--<script src="js/smoothscroll.js"></script>-->
+    <script src="js/smoothscroll.js"></script>
 
-    <!-- Custom JS -->
+    <!-- Morris charts -->
+    <script src="js/raphael-min.js"></script>
+    <script src="js/morris.min.js"></script>
+    <script src="js/custom-morris.js"></script>
+
+    
+
+    <!-- AutoNumeric for currency formatting -->
     <script src="https://cdn.jsdelivr.net/npm/autonumeric@4.6.0/dist/autoNumeric.min.js"></script>
+    <!-- Chart.js for the graph -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- EmailJS (if needed) -->
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <!-- Chart.js Datalabels Plugin -->
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <!-- Custom JS -->
     <script src="js/custom.js"></script>
-    <!--<script src="js/script.js"></script>-->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Retirement Calculator JS -->
+    <script src="js/retirement/script_retirement.js"></script>
 </body>
 
 </html>
