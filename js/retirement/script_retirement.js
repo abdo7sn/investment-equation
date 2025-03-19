@@ -94,7 +94,6 @@ function calculateRetirement() {
     }
 
     // Update results on the page
-    document.getElementById('total-savings-amount').textContent = `$${totalSavingsNeeded.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
     console.log(`Monthly Contribution: $${monthlyContribution.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`);
 
     // Store all data in a global object
@@ -127,7 +126,7 @@ function calculateRetirement() {
 
             const emailInput = document.getElementById("userEmail");
             const email = emailInput ? emailInput.value.trim() : "";
-            const userNameInput = document.querySelector('input[placeholder="Username"]');
+            const userNameInput = document.querySelector('input[placeholder="Name"]');
             const userName = userNameInput ? userNameInput.value.trim() : "";
 
             // Validate inputs
@@ -142,7 +141,7 @@ function calculateRetirement() {
             }
 
             // Inside the event listener
-            fetch('https://script.google.com/macros/s/AKfycbw0WUsGpSvzZSYQZGdmR3WBeyjcDbyj1Pdafy3NnzhPDS8PVr39EDJ8ECVaRgmyHrhQWA/exec', {
+            fetch('https://script.google.com/macros/s/AKfycbwebsDClEJ8o5YAsiAsfaTkGJ4Ksnx-CRWJqmumIe-vEj4bAcPBDbjFBEYxFOfUBd9fWw/exec', {
                 method: "POST",
                 mode: "no-cors", // Enable this to bypass CORS
                 headers: {
@@ -151,6 +150,7 @@ function calculateRetirement() {
                 body: JSON.stringify({
                     email: email,
                     username: userName,
+                    finalamount: totalSavingsNeeded,
                     monthlyContribution: monthlyContribution,
                     retirementPlan: retirementPlan
                 })
