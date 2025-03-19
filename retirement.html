@@ -44,7 +44,7 @@
         <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-header navbar-mobile">
             <div class="navbar-container container">
                 <div class="navbar-brand">
-                    <a class="navbar-brand-logo" href="index.html">
+                    <a class="navbar-brand-logo" href="file:///C:/wamp64/www/investment_equation/index.html">
                         <img src="images/logo.png" alt="logo">
                     </a>
                 </div>
@@ -55,13 +55,13 @@
                 <div class="collapse navbar-collapse justify-content-around" id="navbarNav">
                     <ul class="navbar-nav menu-navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
+                            <a class="nav-link" href="file:///C:/wamp64/www/investment_equation/index.html"><i class="fas fa-home"></i> Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href=index.html#calculator"><i class="fas fa-chart-line"></i> Compound Interest</a>
+                            <a class="nav-link" href="file:///C:/wamp64/www/investment_equation/index.html#calculator"><i class="fas fa-chart-line"></i> Compound Interest</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="riskassessment.html"><i class="fas fa-shield-alt"></i> Risk Assessment</a>
+                            <a class="nav-link" href="file:///C:/wamp64/www/investment_equation/riskassessment.html"><i class="fas fa-shield-alt"></i> Risk Assessment</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fas fa-umbrella-beach"></i> Retirement</a>
@@ -69,7 +69,7 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link learn-more-btn" href="index.html#contact">Contact</a>
+                            <a class="nav-link learn-more-btn" href="file:///C:/wamp64/www/investment_equation/index.html#contact">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -117,25 +117,29 @@
                         <button id="calculateBtn" onclick="show()">Calculate</button>
                     </div>
                     <div class="result-section">
+                        <!-- Existing Results Section -->
                         <div class="total-savings">
                             <h2>Your Total Savings at Retirement<span class="info-icon" title="Calculated using the 4% rule."><i class="fas fa-info-circle"></i></span></h2>
-                            <p id="total-savings-amount">$0</p>
                         </div>
                         <div class="savings-status">
-                            <h2 class="title">Your Monthly Contribution and Retirement plan<span class="info-icon" title="You must enter your username and email to get the results."><i class="fas fa-info-circle"></i></span></h2>
-                            <div id="results-popup" class="popup-overlay">
-                                <div class="popup-content">
-                                    <div class="popup-body">
-                                        <form class="results-form" id="resultsForm">
-                                            <input id="userName" type="text" placeholder="Username" required>
-                                            <input id="userEmail" type="email" placeholder="Email Address" required>
-                                            <button type="submit" class="submit-btn" id="submitBtn">Get Results</button>
-                                        </form>
-                                    </div>
+                            <h2 class="title">Your Monthly Contribution and Retirement Plan<span class="info-icon" title="You must enter your username and email to get the results."><i class="fas fa-info-circle"></i></span></h2>
+                        </div>
+                        <div id="results-popup" class="popup-overlay">
+                            <div class="popup-content">
+                                <div class="popup-body">
+                                    <!-- Form -->
+                                    <form class="results-form" id="resultsForm">
+                                        <!-- Introductory Text Before the Form -->
+                                        <div class="form-intro-text">
+                                            <p>Enter your Email, So we will can send you your <strong>Retirement Plan</strong> (<strong>Final Amount</strong> and <strong>Monthly Contribution</strong>).</p>
+                                        </div>
+                                        <input id="userName" type="text" placeholder="Name" required>
+                                        <input id="userEmail" type="email" placeholder="Email Address" required>
+                                        <button type="submit" class="submit-btn" id="submitBtn">Get Results</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>
