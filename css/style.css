@@ -785,6 +785,11 @@ p.section-para {
     padding-top: 30px;
 }
 
+#emailModal{
+	background: rgba(0, 0, 0, 0.6); /* Darker overlay for better focus */
+    backdrop-filter: blur(3px); /* Subtle blur effect for modern look */
+}
+
 /*
 ================================================
  Responsive CSS
