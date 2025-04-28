@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafaah | Investment Calculator</title>
+    <link rel="stylesheet" href="css/style_ratio.css">
+    
+    <!-- Plugins CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo-r.png">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <script src="https://cdn.jsdelivr.net/npm/autonumeric@4.6.0/dist/autoNumeric.min.js"></script>
+</head>
+<body>
+    <!-- Email Modal -->
+    <div id="emailModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg p-6 w-full max-w-md glass-card">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Send Results via Email</h3>
+            <div class="mb-4">
+                <label for="emailInput" class="block text-sm font-medium text-gray-700 mb-2">Your Email Address</label>
+                <input type="text" id="emailInput" class="w-full px-4 py-2 border rounded input-field" placeholder="example@domain.com">
+            </div>
+            <div class="flex justify-end gap-3">
+                <button id="recalculateBtn" class="px-4 py-2 text-gray-600 hover:text-gray-800">Recalculate</button>
+                <button id="sendEmailBtn" class="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-4 py-2 rounded hover:from-blue-600 hover:to-blue-800 transition-all duration-300">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="navbar-brand">
+                <a href="#top">
+                    <img src="images/logo2.png" alt="logo" class="navbar-logo h-10">
+                </a>
+            </div>
+
+            <!-- Hamburger Menu for Mobile -->
+            <button id="navbar-toggle" class="text-white text-2xl md:hidden focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Menu Items -->
+            <div id="navbar-menu" class="hidden md:flex md:items-center md:space-x-8">
+                <ul class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
+                    <li>
+                        <a href="#top" class="nav-link text-white hover:text-blue-400 transition-colors duration-300">
+                            <i class="fas fa-home mr-2"></i>Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#calculator" class="nav-link text-white hover:text-blue-400 transition-colors duration-300">
+                            <i class="fas fa-chart-line mr-2"></i>Financial Ratios
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white hover:text-blue-400 transition-colors duration-300">
+                            <i class="fas fa-shield-alt mr-2"></i>Risk Assessment
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white hover:text-blue-400 transition-colors duration-300">
+                            <i class="fas fa-umbrella-beach mr-2"></i>Forecasting
+                        </a>
+                    </li>
+                </ul>
+                <a href="#contact" class="nav-link learn-more-btn bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 md:ml-4 contact-btn">
+                    Contact
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="wave-bg">
+        <div class="container mx-auto px-4 py-16 pt-24">
+            <!-- Header -->
+            <header class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 animate-fade-in">FinCalc Pro</h1>
+                <p class="text-lg text-gray-200 max-w-2xl mx-auto animate-fade-in-delay">Uncover your financial health with our advanced ratio calculator. Analyze, improve, and take control of your financial future — all in a few simple steps.</p>
+            </header>
+
+            <!-- Financial Inputs -->
+            <section id="inputs" class="py-12 input-section">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-3xl font-bold text-center mb-8 text-gray-800 text-input">Enter Your Financial Information</h2>
+                    <form id="financialForm" class="max-w-4xl mx-auto space-y-8">
+                        <!-- Income Statement Section -->
+                        <div class="bg-white rounded-lg shadow-md">
+                            <div class="p-4 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-t-lg">
+                                <h3 class="text-xl font-semibold">Income Statement</h3>
+                            </div>
+                            <div class="p-6 space-y-6">
+                                <!-- Income -->
+                                <div class="bg-gray-50 rounded-lg shadow-sm">
+                                    <div class="accordion-header p-4 flex justify-between items-center">
+                                        <h4 class="text-lg font-semibold text-gray-800">Income</h4>
+                                        <i class="fas fa-chevron-down text-gray-500"></i>
+                                    </div>
+                                    <div class="accordion-content p-4 hidden">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div>
+                                                <label for="totalIncome" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Salary ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Your total monthly or annual income from salary.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="totalIncome" name="totalIncome" placeholder="e.g., 19175" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                            <div>
+                                                <label for="rentalIncome" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Rent ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Income from rental properties.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="rentalIncome" name="rentalIncome" placeholder="e.g., 1200" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                            <div>
+                                                <label for="dividendIncome" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Dividends ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Income received from dividends on investments.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="dividendIncome" name="dividendIncome" placeholder="e.g., 300" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Loans Installments -->
+                                <div class="bg-gray-50 rounded-lg shadow-sm">
+                                    <div class="accordion-header p-4 flex justify-between items-center">
+                                        <h4 class="text-lg font-semibold text-gray-800">Loans Installments</h4>
+                                        <i class="fas fa-chevron-down text-gray-500"></i>
+                                    </div>
+                                    <div class="accordion-content p-4 hidden">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div>
+                                                <label for="personalLoanPayments" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Personal Loan ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Monthly payments for personal loans.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="personalLoanPayments" name="personalLoanPayments" placeholder="e.g., 1500" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                            <div>
+                                                <label for="carLoanPayments" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Car Loan ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Monthly payments for car loans.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="carLoanPayments" name="carLoanPayments" placeholder="e.g., 800" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                            <div>
+                                                <label for="homeLoanPayments" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Home Loan ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Monthly payments for home loans or mortgages.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="homeLoanPayments" name="homeLoanPayments" placeholder="e.g., 2000" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Expenses -->
+                                <div class="bg-gray-50 rounded-lg shadow-sm">
+                                    <div class="accordion-header p-4 flex justify-between items-center">
+                                        <h4 class="text-lg font-semibold text-gray-800">Expenses</h4>
+                                        <i class="fas fa-chevron-down text-gray-500"></i>
+                                    </div>
+                                    <div class="accordion-content p-4 hidden">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div>
+                                                <label for="schoolingExpenses" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Schooling ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Expenses related to education, e.g., tuition, school supplies.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="schoolingExpenses" name="schoolingExpenses" placeholder="e.g., 1000" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                            <div>
+                                                <label for="groceryExpenses" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Grocery ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Expenses for groceries and household supplies.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="groceryExpenses" name="groceryExpenses" placeholder="e.g., 500" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                            <div>
+                                                <label for="transportationExpenses" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Transportation ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Expenses for transportation, e.g., fuel, public transit.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="transportationExpenses" name="transportationExpenses" placeholder="e.g., 300" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                            <div>
+                                                <label for="otherExpenses" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Others ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Other miscellaneous expenses.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="otherExpenses" name="otherExpenses" placeholder="e.g., 200" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Balance Sheet Section -->
+                        <div class="bg-white rounded-lg shadow-md">
+                            <div class="p-4 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-t-lg">
+                                <h3 class="text-xl font-semibold">Balance Sheet</h3>
+                            </div>
+                            <div class="p-6 space-y-6">
+                                <!-- Current Assets -->
+                                <div class="bg-gray-50 rounded-lg shadow-sm">
+                                    <div class="accordion-header p-4 flex justify-between items-center">
+                                        <h4 class="text-lg font-semibold text-gray-800">Current Assets</h4>
+                                        <i class="fas fa-chevron-down text-gray-500"></i>
+                                    </div>
+                                    <div class="accordion-content p-4 hidden">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div>
+                                                <label for="cash" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Cash ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Cash on hand or in bank accounts.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="cash" name="cash" placeholder="e.g., 5000" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                            <div>
+                                                <label for="currentRentAssets" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Rent ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Receivables from rental income, if applicable.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="currentRentAssets" name="currentRentAssets" placeholder="e.g., 1200" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                            <div>
+                                                <label for="currentDividendAssets" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Dividends ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Receivables from dividends, if applicable.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="currentDividendAssets" name="currentDividendAssets" placeholder="e.g., 300" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Fixed Assets -->
+                                <div class="bg-gray-50 rounded-lg shadow-sm">
+                                    <div class="accordion-header p-4 flex justify-between items-center">
+                                        <h4 class="text-lg font-semibold text-gray-800">Fixed Assets</h4>
+                                        <i class="fas fa-chevron-down text-gray-500"></i>
+                                    </div>
+                                    <div class="accordion-content p-4 hidden">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div>
+                                                <label for="realEstate1" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Real Estate 1 ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Value of your first real estate property.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="realEstate1" name="realEstate1" placeholder="e.g., 500000" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                            <div>
+                                                <label for="realEstate2" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Real Estate 2 ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Value of your second real estate property, if applicable.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="realEstate2" name="realEstate2" placeholder="e.g., 300000" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                            <div>
+                                                <label for="gold" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Gold ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Value of gold investments or holdings.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="gold" name="gold" placeholder="e.g., 10000" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                            <div>
+                                                <label for="stocks" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Stocks ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Value of stock investments.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="stocks" name="stocks" placeholder="e.g., 20000" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                            <div>
+                                                <label for="crypto" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Crypto ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Value of cryptocurrency investments.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="crypto" name="crypto" placeholder="e.g., 5000" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Current Liabilities -->
+                                <div class="bg-gray-50 rounded-lg shadow-sm">
+                                    <div class="accordion-header p-4 flex justify-between items-center">
+                                        <h4 class="text-lg font-semibold text-gray-800">Current Liabilities</h4>
+                                        <i class="fas fa-chevron-down text-gray-500"></i>
+                                    </div>
+                                    <div class="accordion-content p-4 hidden">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div>
+                                                <label for="currentLiabilities" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Credit Card ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Outstanding balance on credit cards due within a year.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="currentLiabilities" name="currentLiabilities" placeholder="e.g., 2710" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Long Term Liabilities -->
+                                <div class="bg-gray-50 rounded-lg shadow-sm">
+                                    <div class="accordion-header p-4 flex justify-between items-center">
+                                        <h4 class="text-lg font-semibold text-gray-800">Long Term Liabilities</h4>
+                                        <i class="fas fa-chevron-down text-gray-500"></i>
+                                    </div>
+                                    <div class="accordion-content p-4 hidden">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div>
+                                                <label for="personalLoanLiability" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Personal Loan ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Outstanding balance on personal loans due over a year.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="personalLoanLiability" name="personalLoanLiability" placeholder="e.g., 10000" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                            <div>
+                                                <label for="carLoanLiability" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Car Loan ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Outstanding balance on car loans due over a year.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="carLoanLiability" name="carLoanLiability" placeholder="e.g., 15000" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                            <div>
+                                                <label for="homeLoanLiability" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Home Loan ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Outstanding balance on home loans or mortgages due over a year.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="homeLoanLiability" name="homeLoanLiability" placeholder="e.g., 200000" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Calculate Button -->
+                        <div class="text-center">
+                            <button type="button" id="calculateBtn" class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300">
+                                Calculate Ratios
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="results" class="py-12 hidden">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-3xl font-bold text-center mb-8 text-gray-800 text-input">Your Financial Ratios</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                        <!-- Emergency Fund Ratio -->
+                        <div class="result-card bg-white p-6 rounded-lg shadow-md text-center relative">
+                            <div class="flex justify-center mb-2">
+                                <i class="fas fa-umbrella text-purple-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 flex items-center justify-center">
+                                Emergency Fund Ratio
+                                <span class="ml-2 tooltip">
+                                    <i class="fas fa-info-circle text-gray-400"></i>
+                                    <span class="tooltip-text">Shows how many months your emergency fund can cover. Target: 3–6 months.</span>
+                                </span>
+                            </h3>
+                            <p id="emergencyFundRatio" class="text-2xl font-bold text-purple-600 mt-2">0.00 months</p>
+                            <p id="emergencyFundStatus" class="text-sm mt-1"></p>
+                        </div>
+
+                        <!-- Personal Debt Service Ratio -->
+                        <div class="result-card bg-white p-6 rounded-lg shadow-md text-center relative">
+                            <div class="flex justify-center mb-2">
+                                <i class="fas fa-credit-card text-orange-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 flex items-center justify-center">
+                                Personal Debt Service Ratio
+                                <span class="ml-2 tooltip">
+                                    <i class="fas fa-info-circle text-gray-400"></i>
+                                    <span class="tooltip-text">Indicates how much of your income goes to debt payments. Target: Below 36%.</span>
+                                </span>
+                            </h3>
+                            <p id="personalDebtServiceRatio" class="text-2xl font-bold text-orange-600 mt-2">0.00 (0%)</p>
+                            <p id="personalDebtServiceStatus" class="text-sm mt-1"></p>
+                        </div>
+
+                        <!-- Debt-to-Asset Ratio -->
+                        <div class="result-card bg-white p-6 rounded-lg shadow-md text-center relative">
+                            <div class="flex justify-center mb-2">
+                                <i class="fas fa-balance-scale text-cyan-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 flex items-center justify-center">
+                                Debt-to-Asset Ratio
+                                <span class="ml-2 tooltip">
+                                    <i class="fas fa-info-circle text-gray-400"></i>
+                                    <span class="tooltip-text">Shows the percentage of assets financed with debt. Target: Below 40%.</span>
+                                </span>
+                            </h3>
+                            <p id="debtToAssetRatio" class="text-2xl font-bold text-cyan-600 mt-2">0.00 (0%)</p>
+                            <p id="debtToAssetStatus" class="text-sm mt-1"></p>
+                        </div>
+
+                        <!-- Current Ratio -->
+                        <div class="result-card bg-white p-6 rounded-lg shadow-md text-center relative">
+                            <div class="flex justify-center mb-2">
+                                <i class="fas fa-wallet text-pink-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 flex items-center justify-center">
+                                Current Ratio
+                                <span class="ml-2 tooltip">
+                                    <i class="fas fa-info-circle text-gray-400"></i>
+                                    <span class="tooltip-text">Measures liquidity by comparing current assets to liabilities. Higher is better.</span>
+                                </span>
+                            </h3>
+                            <p id="currentRatio" class="text-2xl font-bold text-pink-600 mt-2">0.00</p>
+                            <p id="currentRatioStatus" class="text-sm mt-1"></p>
+                        </div>
+                    </div>
+                    <div class="mt-12 flex justify-center">
+                        <div class="bg-white p-6 rounded-lg shadow-md max-w-lg w-full">
+                            <canvas id="ratioChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <button id="emailBtn" class="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-colors duration-300">
+                            <i class="fas fa-envelope mr-2"></i> Email the Results
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <section class="footer">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row flex-wrap gap-8">
+                <div class="w-full md:w-1/2 lg:w-1/2">
+                    <div class="footer-widget">
+                        <img src="images/logo-r.png" alt="logo" class="footer-logo" />
+                        <p class="mt-4">Track your wealth effortlessly with our tools. Simplify financial planning, monitor your investments, and stay on top of your goals—all in one place.</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/4 lg:w-1/4">
+                    <div class="footer-widget">
+                        <h5 class="text-xl font-semibold mb-6">Quick Links</h5>
+                        <ul>
+                            <li><a href="#services"><i class="fas fa-angle-right"></i> Services</a></li>
+                            <li><a href="#calculator"><i class="fas fa-angle-right"></i> Calculator</a></li>
+                            <li><a href="#contact"><i class="fas fa-angle-right"></i> Contact Us</a></li>
+                            <li><a href="#reviews"><i class="fas fa-angle-right"></i> Reviews</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/6 lg:w-1/6">
+                    <div class="footer-widget">
+                        <h5 class="text-xl font-semibold mb-6">Social Connect</h5>
+                        <div class="social-icons">
+                            <a href="https://x.com/RafaahWealth"><img src="https://img.icons8.com/?size=100&id=de4vjQ6J061l&format=png&color=FFFFFF" width="30" class="social-icon"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8">
+                <div class="footer-copyright text-center">
+                    © 2025 Rafaah.ai All Rights Reserved.<br>
+                    by <a href="https://x.com/Abdou7sn" class="footer-credit">Abdou7sn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- jQuery Min JS -->
+    <script src="js/jquery-min.js"></script>
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+   
+    <!-- Bootstrap Min JS -->
+    <script src="js/bootstrap.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="https://cdn.jsdelivr.net/npm/autonumeric@4.6.0/dist/autoNumeric.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="js/custom.js"></script>
+
+    <script src="js/Ratio_analysis/script.js"></script>
+    <script>
+        // Accordion functionality
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('i');
+                content.classList.toggle('hidden');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9355af117c56dd1e',t:'MTc0NTQ5ODU4MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'936d8ab66e07dd1d',t:'MTc0NTc0ODc0OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>
