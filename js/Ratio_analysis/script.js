@@ -32,6 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
         'personalLoanPayments',
         'carLoanPayments',
         'homeLoanPayments',
+        'emergencyFundSavings',
+        'retirementSavings',
+        'otherInvestments',
         'schoolingExpenses',
         'groceryExpenses',
         'transportationExpenses',
@@ -83,6 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const homeLoanPayments = parseFloat(document.getElementById('homeLoanPayments').value.replace(/,/g, '')) || 0;
         const totalDebtPayments = personalLoanPayments + carLoanPayments + homeLoanPayments;
 
+        // Saving and Investing
+        const emergencyFundSavings = parseFloat(document.getElementById('emergencyFundSavings').value.replace(/,/g, '')) || 0;
+        const retirementSavings = parseFloat(document.getElementById('retirementSavings').value.replace(/,/g, '')) || 0;
+        const otherInvestments = parseFloat(document.getElementById('otherInvestments').value.replace(/,/g, '')) || 0;
+
         // Expenses
         const schoolingExpenses = parseFloat(document.getElementById('schoolingExpenses').value.replace(/,/g, '')) || 0;
         const groceryExpenses = parseFloat(document.getElementById('groceryExpenses').value.replace(/,/g, '')) || 0;
@@ -116,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalLiabilities = currentLiabilities + longTermLiabilities;
 
         // Calculate ratios
+        const retirementSavingsRatio = totalIncome !== 0 ? (retirementSavings / totalIncome) : 0;
         const emergencyFundRatio = monthlyExpenses !== 0 ? (currentAssets / monthlyExpenses) : 0;
         const emergencyFundDays = emergencyFundRatio * 30; // Convert months to days (assuming 30 days/month)
         const personalDebtServiceRatio = totalIncome !== 0 ? (totalDebtPayments / totalIncome) : 0;
@@ -124,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Store results
         financialResults = {
+            retirementSavingsRatio,
             emergencyFundRatio,
             emergencyFundDays,
             personalDebtServiceRatio,
@@ -136,6 +146,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to display results on main page
     function displayResults(results) {
+        // Retirement Savings Ratio
+        document.getElementById('retirementSavingsRatio').textContent = `${results.retirementSavingsRatio.toFixed(3)} (${(results.retirementSavingsRatio * 100).toFixed(1)}%)`;
+        const retirementSavingsStatus = results.retirementSavingsRatio >= 0.10 && results.retirementSavingsRatio <= 0.15 ?
+            { text: 'Within target range (10–15%)!', class: 'text-green-600' } :
+            results.retirementSavingsRatio < 0.10 ?
+            { text: 'Below target of 10%', class: 'text-red-600' } :
+            { text: 'Above target of 15%', class: 'text-yellow-600' };
+        const retirementSavingsStatusEl = document.getElementById('retirementSavingsStatus');
+        retirementSavingsStatusEl.textContent = retirementSavingsStatus.text;
+        retirementSavingsStatusEl.className = `text-sm mt-1 ${retirementSavingsStatus.class}`;
+
+        // Emergency Fund Ratio
         document.getElementById('emergencyFundRatio').textContent = `${results.emergencyFundRatio.toFixed(2)} months (${Math.round(results.emergencyFundDays)} days)`;
         const emergencyFundStatus = results.emergencyFundRatio >= 3 && results.emergencyFundRatio <= 6 ?
             { text: 'Within target range (3–6 months)!', class: 'text-green-600' } :
@@ -146,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         emergencyFundStatusEl.textContent = emergencyFundStatus.text;
         emergencyFundStatusEl.className = `text-sm mt-1 ${emergencyFundStatus.class}`;
 
+        // Personal Debt Service Ratio
         document.getElementById('personalDebtServiceRatio').textContent = `${results.personalDebtServiceRatio.toFixed(3)} (${(results.personalDebtServiceRatio * 100).toFixed(1)}%)`;
         const personalDebtServiceStatus = results.personalDebtServiceRatio <= 0.36 ?
             { text: "Within target (below 36%)!", class: 'text-green-600' } :
@@ -154,6 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
         personalDebtServiceStatusEl.textContent = personalDebtServiceStatus.text;
         personalDebtServiceStatusEl.className = `text-sm mt-1 ${personalDebtServiceStatus.class}`;
 
+        // Debt-to-Asset Ratio
         document.getElementById('debtToAssetRatio').textContent = `${results.debtToAssetRatio.toFixed(3)} (${(results.debtToAssetRatio * 100).toFixed(1)}%)`;
         const debtToAssetStatus = results.debtToAssetRatio <= 0.40 ?
             { text: 'Within target (below 40%)!', class: 'text-green-600' } :
@@ -162,6 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
         debtToAssetStatusEl.textContent = debtToAssetStatus.text;
         debtToAssetStatusEl.className = `text-sm mt-1 ${debtToAssetStatus.class}`;
 
+        // Current Ratio
         document.getElementById('currentRatio').textContent = results.currentRatio.toFixed(2);
         const currentRatioStatus = results.currentRatio >= 1 ?
             { text: 'Good liquidity (above 1)!', class: 'text-green-600' } :
@@ -190,17 +215,18 @@ document.addEventListener('DOMContentLoaded', () => {
         window.ratioChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Emergency Fund', 'Personal Debt Service', 'Debt-to-Asset', 'Current Ratio'],
+                labels: ['Retirement Savings', 'Emergency Fund', 'Personal Debt Service', 'Debt-to-Asset', 'Current Ratio'],
                 datasets: [{
                     label: 'Financial Ratios',
                     data: [
+                        results.retirementSavingsRatio,
                         results.emergencyFundRatio,
                         results.personalDebtServiceRatio,
                         results.debtToAssetRatio,
                         results.currentRatio
                     ],
-                    backgroundColor: ['#8B5CF6', '#F59E0B', '#06B6D4', '#EC4899'],
-                    borderColor: ['#6D28D9', '#D97706', '#0891B2', '#BE185D'],
+                    backgroundColor: ['#2DD4BF', '#8B5CF6', '#F59E0B', '#06B6D4', '#EC4899'],
+                    borderColor: ['#0D9488', '#6D28D9', '#D97706', '#0891B2', '#BE185D'],
                     borderWidth: 1
                 }]
             },
@@ -244,9 +270,9 @@ document.addEventListener('DOMContentLoaded', () => {
                                     label += ': ';
                                 }
                                 const value = context.parsed.y;
-                                if (context.dataIndex === 1 || context.dataIndex === 2) {
+                                if (context.dataIndex === 0 || context.dataIndex === 2 || context.dataIndex === 3) {
                                     return label + value.toFixed(2) + ' (' + (value * 100).toFixed(1) + '%)';
-                                } else if (context.dataIndex === 0) {
+                                } else if (context.dataIndex === 1) {
                                     return label + value.toFixed(2) + ' months';
                                 } else {
                                     return label + value.toFixed(2);
@@ -262,6 +288,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to reset results
     function resetResults() {
         // Reset displayed values
+        document.getElementById('retirementSavingsRatio').textContent = '0.00 (0%)';
+        document.getElementById('retirementSavingsStatus').textContent = '';
         document.getElementById('emergencyFundRatio').textContent = '0.00 months';
         document.getElementById('emergencyFundStatus').textContent = '';
         document.getElementById('personalDebtServiceRatio').textContent = '0.00 (0%)';
@@ -357,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const result = await response.json();
             if (result.status === 'success') {
-                alert('Your results have been successfully sent to the email.');
+                alert('Email sent successfully and data saved to Google Sheet!');
                 gsap.to(emailModal.querySelector('.glass-card'), {
                     scale: 0.8,
                     opacity: 0,
