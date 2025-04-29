@@ -60,27 +60,27 @@
             <div id="navbar-menu" class="hidden md:flex md:items-center md:space-x-8">
                 <ul class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
                     <li>
-                        <a href="https://calculator.rafaah.ai/index" class="nav-link text-white hover:text-blue-400 transition-colors duration-300">
+                        <a href="#top" class="nav-link text-white hover:text-blue-400 transition-colors duration-300">
                             <i class="fas fa-home mr-2"></i>Home
                         </a>
                     </li>
                     <li>
-                        <a href="file:///C:/wamp64/www/investment_equation/index#calculator" class="nav-link text-white hover:text-blue-400 transition-colors duration-300">
+                        <a href="#calculator" class="nav-link text-white hover:text-blue-400 transition-colors duration-300">
                             <i class="fas fa-chart-line mr-2"></i>Financial Ratios
                         </a>
                     </li>
                     <li>
-                        <a href="https://calculator.rafaah.ai/riskassessment" class="nav-link text-white hover:text-blue-400 transition-colors duration-300">
+                        <a href="#" class="nav-link text-white hover:text-blue-400 transition-colors duration-300">
                             <i class="fas fa-shield-alt mr-2"></i>Risk Assessment
                         </a>
                     </li>
                     <li>
-                        <a href="https://calculator.rafaah.ai/retirement" class="nav-link text-white hover:text-blue-400 transition-colors duration-300">
-                            <i class="fas fa-umbrella-beach mr-2"></i>Retirement
+                        <a href="#" class="nav-link text-white hover:text-blue-400 transition-colors duration-300">
+                            <i class="fas fa-umbrella-beach mr-2"></i>Forecasting
                         </a>
                     </li>
                 </ul>
-                <a href="file:///C:/wamp64/www/investment_equation/index#contact" class="nav-link learn-more-btn bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 md:ml-4 contact-btn">
+                <a href="#contact" class="nav-link learn-more-btn bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 md:ml-4">
                     Contact
                 </a>
             </div>
@@ -89,7 +89,7 @@
 
     <!-- Main Content -->
     <div class="wave-bg">
-        <div class="container mx-auto px-2 py-16 pt-24">
+        <div class="container mx-auto px-4 py-16 pt-24">
             <!-- Header -->
             <header class="text-center mb-16">
                 <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 animate-fade-in">FinCalc Pro</h1>
@@ -98,7 +98,7 @@
 
             <!-- Financial Inputs -->
             <section id="inputs" class="py-12 input-section">
-                <div class="container mx-auto px-0 input-container">
+                <div class="container mx-auto px-4">
                     <h2 class="text-3xl font-bold text-center mb-8 text-gray-800 text-input">Enter Your Financial Information</h2>
                     <form id="financialForm" class="max-w-4xl mx-auto space-y-8">
                         <!-- Income Statement Section -->
@@ -186,6 +186,48 @@
                                                     </span>
                                                 </label>
                                                 <input type="text" id="homeLoanPayments" name="homeLoanPayments" placeholder="e.g., 2000" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Saving and Investing -->
+                                <div class="bg-gray-50 rounded-lg shadow-sm">
+                                    <div class="accordion-header p-4 flex justify-between items-center">
+                                        <h4 class="text-lg font-semibold text-gray-800">Saving and Investing</h4>
+                                        <i class="fas fa-chevron-down text-gray-500"></i>
+                                    </div>
+                                    <div class="accordion-content p-4 hidden">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div>
+                                                <label for="emergencyFundSavings" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Emergency Fund Savings ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Monthly or annual contributions to your emergency fund.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="emergencyFundSavings" name="emergencyFundSavings" placeholder="e.g., 500" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                            <div>
+                                                <label for="retirementSavings" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Retirement Savings ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Monthly or annual contributions to retirement accounts.</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="retirementSavings" name="retirementSavings" placeholder="e.g., 1000" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                            </div>
+                                            <div>
+                                                <label for="otherInvestments" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                    Other Investments ($)
+                                                    <span class="ml-2 tooltip">
+                                                        <i class="fas fa-info-circle text-gray-400"></i>
+                                                        <span class="tooltip-text">Monthly or annual contributions to other investments (stocks, bonds, etc.).</span>
+                                                    </span>
+                                                </label>
+                                                <input type="text" id="otherInvestments" name="otherInvestments" placeholder="e.g., 300" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                                             </div>
                                         </div>
                                     </div>
@@ -312,7 +354,7 @@
                                                 <input type="text" id="realEstate1" name="realEstate1" placeholder="e.g., 500000" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
                                             </div>
                                             <div>
-                                                <label for="realEstate2" class="block text-sm font-medium text-gray-700 flex items-center">
+                                                <label for="realEstate2" class="block text="block text-sm font-medium text-gray-700 flex items-center">
                                                     Real Estate 2 ($)
                                                     <span class="ml-2 tooltip">
                                                         <i class="fas fa-info-circle text-gray-400"></i>
@@ -435,7 +477,23 @@
             <section id="results" class="py-12 hidden">
                 <div class="container mx-auto px-4">
                     <h2 class="text-3xl font-bold text-center mb-8 text-gray-800 text-input">Your Financial Ratios</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-5xl mx-auto">
+                        <!-- Retirement Savings Ratio -->
+                        <div class="result-card bg-white p-6 rounded-lg shadow-md text-center relative">
+                            <div class="flex justify-center mb-2">
+                                <i class="fas fa-piggy-bank text-teal-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800 flex items-center justify-center">
+                                Retirement Savings Ratio
+                                <span class="ml-2 tooltip">
+                                    <i class="fas fa-info-circle text-gray-400"></i>
+                                    <span class="tooltip-text">Shows how much of your income goes to retirement savings. Target: 10–15%.</span>
+                                </span>
+                            </h3>
+                            <p id="retirementSavingsRatio" class="text-2xl font-bold text-teal-600 mt-2">0.00 (0%)</p>
+                            <p id="retirementSavingsStatus" class="text-sm mt-1"></p>
+                        </div>
+
                         <!-- Emergency Fund Ratio -->
                         <div class="result-card bg-white p-6 rounded-lg shadow-md text-center relative">
                             <div class="flex justify-center mb-2">
