@@ -280,6 +280,7 @@ p.header-subtitle {
 	gap: 15px;
 	margin-bottom: 20px;
 	justify-content: left;
+	flex-wrap: wrap;
 }
 
 .custom-button {
