@@ -372,7 +372,7 @@ button#cancelEmailBtn:hover {
     color: #5ae251 !important;
 }
 
-@media (min-width: 276px) and (max-width: 768px) {
+@media (min-width: 360px) and (max-width: 768px) {
     .container {
         padding: 1rem;
     }
@@ -385,6 +385,12 @@ button#cancelEmailBtn:hover {
     }
 
     .input-container {
+        width: 390px !important;
+    }
+}
+
+@media (min-width: 240px) and (max-width: 360px) {
+	.input-container {
         width: 330px !important;
     }
 }
