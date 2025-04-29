@@ -113,7 +113,7 @@ body {
 .input-section {
     background-color: rgba(45, 212, 191, 0.4);
     border-radius: 30px;
-    padding: 2rem;
+    padding: 0.4rem;
 }
 
 .text-input {
@@ -382,5 +382,9 @@ button#cancelEmailBtn:hover {
         right: 0;
         height: 50px;
 
+    }
+
+    .input-container {
+        width: 330px !important;
     }
 }
