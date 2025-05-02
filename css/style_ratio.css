@@ -1,86 +1,50 @@
+/*
+    Template Name: Loanica - Adjusted for Ratio Analysis
+    Description: Adjusted styles to match the Loanica theme
+    Author: konnectcode (adapted for ratio analysis)
+    Version: 1.0
+*/
+
+
+/* Base styles to align with style.css */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    line-height: 1.57143;
+    font-weight: 400;
+    color: #2d2e2e;
+    background: linear-gradient(90deg, rgba(245, 246, 250, 1), rgba(237, 242, 247, 1));
     min-height: 100vh;
-    color: #333;
     margin: 0;
     overflow-x: hidden;
 }
 
+/* Wave background adjusted to match header background from style.css */
 .wave-bg {
     position: relative;
-    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+    min-height: 100vh; /* Ensure it doesn’t collapse */
+    overflow: visible; /* Change from hidden to visible to prevent clipping */
 }
 
-.wave-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-    background-size: cover;
-    animation: wave 10s infinite linear;
-}
-
-@keyframes wave {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-1440px);
-    }
-}
-
+/* Container styles to match style.css */
 .container {
     max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 15px;
     position: relative;
     z-index: 1;
 }
 
-/* Header Styles (Tailwind-based) */
+.header-section {
+    color: rgb(181, 229, 128);
+    background-color: rgb(13, 59, 107);
+}
+
 #navbar {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s ease;
-}
-
-.navbar-logo {
-    transition: transform 0.3s ease;
-}
-
-.navbar-logo:hover {
-    transform: scale(1.05);
-}
-
-.nav-link {
-    position: relative;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background: #3b82f6;
-    transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-#navbar-menu {
-    transition: all 0.3s ease;
-}
-
-#navbar-toggle:hover i {
-    transform: rotate(90deg);
+    z-index: 1000; /* Ensure navbar is above quick-tools-section (z-index: 50) */
 }
 
 @media (max-width: 767px) {
@@ -90,13 +54,14 @@ body {
         top: 100%;
         left: 0;
         width: 100%;
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255);
         border-radius: 0 0 8px 8px;
         padding: 1rem;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
     #navbar-menu.active {
         display: flex;
+        z-index: 1100; /* Higher z-index to ensure menu is above quick-tools-section */
     }
     .nav-link {
         color: #333 !important;
@@ -110,49 +75,87 @@ body {
     }
 }
 
+/* Input section adjusted to match form-calculator from style.css */
 .input-section {
-    background-color: rgba(45, 212, 191, 0.4);
-    border-radius: 30px;
-    padding: 0.4rem;
+    padding: 20px;
+    background: #fff;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(12, 0, 46, 0.05);
 }
 
+/* Text input styles to match style.css */
 .text-input {
-    color: rgba(206, 202, 202, 0.966) !important;
+    color: #322153 !important;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.text-input::before {
+    position: absolute;
+    content: "";
+    width: 168px;
+    height: 5px;
+    background-color: #213884;
+    bottom: -10px;
+    border-radius: 5px;
+}
+
+/* Input field styles to match contact-form .form-control from style.css */
+input {
+    font-size: 15px;
+    height: 50px;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
 }
 
 input:focus {
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+    border: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
     transform: scale(1.02);
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-input {
-    transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 input:hover {
-    border-color: #3b82f6;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
+/* Accordion header styles to match service-box from style.css */
 .accordion-header {
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    background: rgba(50, 33, 83, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
 }
 
 .accordion-header:hover {
-    background-color: #e5e7eb;
+    background: rgba(50, 33, 83, 0.2);
     transform: translateY(-2px);
 }
 
+/* Result card styles to match service-box from style.css */
 .result-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(132, 189, 90, 0.1);
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
 }
 
 .result-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
+.result-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Tooltip styles adjusted to match style.css */
 .tooltip {
     position: relative;
 }
@@ -160,10 +163,10 @@ input:hover {
 .tooltip .tooltip-text {
     visibility: hidden;
     width: 200px;
-    background-color: #1f2937;
+    background-color: #213884;
     color: #fff;
     text-align: center;
-    border-radius: 6px;
+    border-radius: 5px;
     padding: 8px;
     position: absolute;
     z-index: 1;
@@ -171,8 +174,8 @@ input:hover {
     left: 50%;
     margin-left: -100px;
     opacity: 0;
-    transition: opacity 0.3s;
-    font-size: 0.75rem;
+    transition: opacity 0.3s ease-in-out;
+    font-size: 13px;
 }
 
 .tooltip:hover .tooltip-text {
@@ -180,19 +183,17 @@ input:hover {
     opacity: 1;
 }
 
-/* Modal Styles */
+/* Modal styles to match contact-form from style.css */
 #emailModal {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
     z-index: 1000;
 }
 
-#emailModal .bg-black {
-    background-color: rgba(0, 0, 0, 0.75);
-}
-
-#emailModal .glass-card {
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+#emailModal .bg-white {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Blur effect for background when modal is active */
@@ -255,22 +256,57 @@ input:hover {
     transform: translateY(0);
 }
 
-button#calculateBtn {
-    font-weight: 600;
-    box-shadow: 0 4px 20px rgba(45, 212, 191, 0.4);
+/* Button styles to match custom-btn from style.css */
+button.calc-but {
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    color: rgb(181, 229, 128);
+    background-color: rgb(13, 59, 107);
+}
+
+button.calc-but:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: rgb(181, 229, 128);
+    color: rgb(13, 59, 107);
 }
 
 button#emailBtn, button#sendEmailBtn {
-    font-weight: 600;
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    background: linear-gradient(135deg, #5bac29, #64ec10);
 }
 
-button#cancelEmailBtn {
-    transition: all 0.3s ease;
+button#emailBtn:hover, button#sendEmailBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-button#cancelEmailBtn:hover {
-    text-decoration: underline;
+button#recalculateBtn {
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    color: #322153;
+    border: 2px solid #322153;
+    background: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+button#recalculateBtn:hover {
+    background: #322153;
+    color: #fff;
 }
 
 .animate-fade-in {
@@ -289,87 +325,70 @@ button#cancelEmailBtn:hover {
     }
 }
 
-/* Footer Styles */
-.footer {
-    background: linear-gradient(135deg, #1e3a8a 0%, #2d4b9c 100%);
-    color: #ffffff;
-    padding: 3rem 0;
+/* Quick Tools Section */
+.quick-tools-section {
+    padding: 50px 0;
+    background: linear-gradient(90deg, rgba(245, 246, 250), rgba(237, 242, 247));
+    margin-top: 0; /* Remove margin-top to ensure it appears below the navbar */
+    position: relative; /* Ensure it’s not affected by absolute positioning of other elements */
+    z-index: 50; /* Ensure it’s above other elements */
+    margin-top: 10px;
+}
+
+.quick-tools-section .section-heading {
+    color: #322153;
+    font-weight: bold;
+    margin-bottom: 30px;
     position: relative;
-    z-index: 1;
+    font-size: 30px;
+    text-align: center;
 }
 
-.footer-widget {
-    opacity: 0;
-    animation: fadeIn 1s ease forwards 0.2s;
+.quick-tools-section .section-heading::before {
+    position: absolute;
+    content: "";
+    width: 168px;
+    height: 5px;
+    background-color: #213884;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
 }
 
-.footer-logo {
-    height: 50px;
-    transition: transform 0.3s ease;
-}
-
-.footer-logo:hover {
-    transform: scale(1.05);
-}
-
-.footer p {
-    color: #d1d5db;
-    line-height: 1.6;
-}
-
-.footer ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer ul li {
-    margin-bottom: 0.75rem;
-}
-
-.footer ul li a {
-    color: #d1d5db;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer ul li a:hover {
-    color: #3b82f6;
-}
-
-.footer ul li a i {
-    margin-right: 0.5rem;
-}
-
-.social-icons {
+.quick-tools-section .custom-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    margin-top: 30px;
 }
 
-.social-icon {
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.social-icon:hover {
-    transform: scale(1.2);
-    opacity: 0.8;
-}
-
-.footer-copyright {
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #d1d5db;
-    font-size: 0.9rem;
-}
-
-.footer-credit {
-    color: #3b82f6 !important;
+.quick-tools-section .custom-button {
+    background: linear-gradient(90deg, #1A2A5A, #2E3D7A);
+    color: #F5F6FA;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 12px 0;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 260px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    letter-spacing: 0.5px;
     text-decoration: none;
-    transition: color 0.3s ease;
 }
 
-.footer-credit:hover {
-    color: #5ae251 !important;
+.quick-tools-section .custom-button:hover {
+    background: linear-gradient(90deg, #2E3D7A, #1A2A5A);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    color: #F5F6FA;
 }
 
 @media (min-width: 360px) and (max-width: 768px) {
@@ -381,7 +400,6 @@ button#cancelEmailBtn:hover {
         position: absolute;
         right: 0;
         height: 50px;
-
     }
 
     .input-container {
@@ -390,7 +408,7 @@ button#cancelEmailBtn:hover {
 }
 
 @media (min-width: 240px) and (max-width: 360px) {
-	.input-container {
+    .input-container {
         width: 330px !important;
     }
 }
