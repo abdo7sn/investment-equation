@@ -5,10 +5,7 @@
 2. Header Section
 =====================================================================*/
 /*=========
-Font load
-===========*/
-@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,531;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,531;1,600;1,700;1,800;1,900&display=swap");
-/*=========
+
 Color Code
 ===========*/
 /*global area*/
@@ -20,25 +17,25 @@ body {
   font-size: 15px;
   font-weight: 400;
   line-height: 1.5;
-  color: #2f3146;
-  font-family: "Jost", sans-serif;
+  color: rgb(13, 59, 107);
+  font-family: "Inter", sans-serif;
   -moz-osx-font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
 }
 
 ::-moz-selection {
   color: #ffffff;
-  background-color: #213884;
+  background-color: rgb(13, 59, 107);
 }
 
 ::selection {
   color: #ffffff;
-  background-color: #213884;
+  background-color: rgb(13, 59, 107);
 }
 
 ::-moz-selection {
   color: #ffffff;
-  background-color: #213884;
+  background-color: rgb(13, 59, 107);
 }
 
 ul {
@@ -187,8 +184,8 @@ h6 {
 
 .wrapper {
   max-width: 1620px;
-  max-height: 1055px;
-  background-color: #fff;
+  max-height: 1255px;
+  background: linear-gradient(90deg, rgba(245, 246, 250, 1), rgba(237, 242, 247, 1));
   
 }
 
@@ -223,16 +220,16 @@ h6 {
   border: 2px solid #e3e3e3;
 }
 .steps li.first a {
-  border: 2px solid #213884;
+  border: 2px solid rgb(13, 59, 107);
 }
 .steps li.checked a, .steps li.current a {
-  border: 2px solid #213884;
+  border: 2px solid rgb(13, 59, 107);
 }
 .steps li.checked a:after, .steps li.current a:after {
   top: 0;
   left: 13px;
   font-size: 20px;
-  color: #213884;
+  color: rgb(13, 59, 107);
   content: "";
   font-weight: 900;
   position: absolute;
@@ -331,8 +328,8 @@ select.form-control option[value=""][disabled] {
   font-weight: 500;
   line-height: 55px;
   text-align: center;
-  background-color: #213884;
-  border: 2px solid #213884;
+  background-color: rgb(13, 59, 107);
+  border: 2px solid rgb(13, 59, 107);
   cursor: pointer;
 }
 .actions li span i,
@@ -353,11 +350,11 @@ select.form-control option[value=""][disabled] {
   left: inherit !important;
 }
 .actions li:last-child span {
-  background-color: #213884;
+  background-color: rgb(13, 59, 107);
   color: #fff;
 }
 .actions li:last-child span:hover {
-  background-color: #213884;
+  background-color: rgb(13, 59, 107);
 }
 .actions li[aria-disabled=true] a {
   opacity: 0;
@@ -366,11 +363,11 @@ select.form-control option[value=""][disabled] {
   transition: all 1s;
 }
 .actions li[aria-disabled=false] ~ li a {
-  background-color: #213884;
+  background-color: rgb(13, 59, 107);
   color: #fff;
 }
 .actions li[aria-disabled=false] ~ li a:hover {
-  background-color: #213884;
+  background-color: rgb(13, 59, 107);
 }
 
 .checkbox-tick label {
@@ -464,7 +461,6 @@ select.form-control option[value=""][disabled] {
   background: #999;
   position: absolute;
   display: none;
-  padding: ;
 }
 
 .has-float-label {
@@ -476,8 +472,8 @@ select.form-control option[value=""][disabled] {
   left: 35px;
   width: 33px;
   height: 33px;
-  color: #8dcef9;
-  border: 1px solid #8dcef9;
+  color: rgb(13, 59, 107);
+  border: 1px solid rgb(13, 59, 107);
   border-radius: 100%;
   font-size: 10px;
   -webkit-box-align: center;
@@ -491,8 +487,8 @@ select.form-control option[value=""][disabled] {
           justify-content: center;
 }
 .has-float-label i:hover {
-  background: #213884;
-  border-color: #213884;
+  background: rgb(13, 59, 107);
+  border-color: rgb(13, 59, 107);
   color: #fff;
 }
 .has-float-label i + input, .has-float-label .wizard-form-field i + select, .wizard-form-field .has-float-label i + select {
@@ -578,7 +574,7 @@ select.form-control option[value=""][disabled] {
   -webkit-transition: all 0.2s;
   -o-transition: all 0.2s;
   transition: all 0.2s;
-  color: #213884;
+  color: rgb(13, 59, 107);
 }
 .has-float-label .form-control::-moz-placeholder {
   opacity: 1;
@@ -586,7 +582,7 @@ select.form-control option[value=""][disabled] {
   -o-transition: all 0.2s;
   -moz-transition: all 0.2s;
   transition: all 0.2s;
-  color: #213884;
+  color: rgb(13, 59, 107);
 }
 .has-float-label .form-control:-ms-input-placeholder {
   opacity: 1;
@@ -594,14 +590,14 @@ select.form-control option[value=""][disabled] {
   -o-transition: all 0.2s;
   -ms-transition: all 0.2s;
   transition: all 0.2s;
-  color: #213884;
+  color: rgb(13, 59, 107);
 }
 .has-float-label .form-control::placeholder {
   opacity: 1;
   -webkit-transition: all 0.2s;
   -o-transition: all 0.2s;
   transition: all 0.2s;
-  color: #213884;
+  color: rgb(13, 59, 107);
 }
 .has-float-label .form-control:focus::-webkit-input-placeholder {
   color: transparent;
@@ -644,8 +640,8 @@ select.form-control option[value=""][disabled] {
   left: 35px;
   width: 33px;
   height: 33px;
-  color: #8dcef9;
-  border: 1px solid #8dcef9;
+  color: rgb(13, 59, 107);
+  border: 1px solid rgb(13, 59, 107);
   border-radius: 100%;
   font-size: 10px;
   -webkit-box-align: center;
@@ -659,8 +655,8 @@ select.form-control option[value=""][disabled] {
           justify-content: center;
 }
 .tooltip-info i:hover {
-  background: #213884;
-  border-color: #213884;
+  background: rgb(13, 59, 107);
+  border-color: rgb(13, 59, 107);
   color: #fff;
 }
 .tooltip-info span, .tooltip-info input[type=text], .tooltip-info .wizard-form-field select[type=text], .wizard-form-field .tooltip-info select[type=text] {
@@ -708,7 +704,7 @@ select.form-control option[value=""][disabled] {
 
 .tooltip-inner {
   max-width: 280px;
-  background-color: #213884;
+  background-color: rgb(13, 59, 107);
   border-radius: 0;
 }
 
@@ -721,8 +717,8 @@ select.form-control option[value=""][disabled] {
 }
 
 .tooltip .arrow:before {
-  border-bottom-color: #213884;
-  border-top-color: #213884;
+  border-bottom-color: rgb(13, 59, 107);
+  border-top-color: rgb(13, 59, 107);
 }
 
 /*---------------------------------------------------- */
@@ -800,12 +796,12 @@ select.form-control option[value=""][disabled] {
   display: none;
 }
 .multisteps-form__progress-btn.js-active {
-  color: #193db3;
+  color: rgb(13, 59, 107);
 }
 .multisteps-form__progress-btn.js-active:before {
-  border-color: #193db3;
+  border-color: rgb(13, 59, 107);
   font-size: 20px;
-  color: #193db3;
+  color: rgb(13, 59, 107);
   content: "";
   font-weight: 900;
   font-family: "Font Awesome 5 Free";
@@ -927,7 +923,7 @@ select.form-control option[value=""][disabled] {
 }
 
 .wizard-part-title h3 {
-  color: #193db3;
+  color: rgb(13, 59, 107);
   font-size: 50px;
   font-weight: 700;
   text-align: left;
@@ -952,7 +948,7 @@ select.form-control option[value=""][disabled] {
 .badge-selection h3 {
   font-size: 20px;
   font-weight: 500;
-  color: #193db3;
+  color: rgb(13, 59, 107);
 }
 .badge-selection span {
   top: -5px;
@@ -984,7 +980,7 @@ select.form-control option[value=""][disabled] {
   height: 18px;
   position: absolute;
   border-radius: 80px;
-  background-color: #193db3;
+  background-color: rgb(13, 59, 107);
 }
 
 .wizard-content-item {
@@ -995,11 +991,11 @@ select.form-control option[value=""][disabled] {
 }
 .wizard-content-item h2 {
   font-size: 43px;
-  color: #193db3;
+  color: rgb(13, 59, 107);
   font-weight: 700;
 }
 .wizard-content-item p {
-  color: #193db3;
+  color: rgb(13, 59, 107);
   font-size: 33px;
   font-weight: 600;
   line-height: 1.2;
@@ -1025,7 +1021,7 @@ select.form-control option[value=""][disabled] {
   border: 2px solid #ddeef9;
 }
 .wizard-form-field input:focus, .wizard-form-field select:focus {
-  border: 2px solid #193db3;
+  border: 2px solid rgb(13, 59, 107);
   background-color: transparent;
 }
 .wizard-form-field select {
@@ -1081,7 +1077,7 @@ select.form-control option[value=""][disabled] {
 .wizard-option-list li .option-item-list select {
   width: 100%;
   height: 83px;
-  color: #193db3;
+  color: rgb(13, 59, 107);
   font-size: 20px;
   font-weight: 500;
   padding-left: 60px;
@@ -1090,10 +1086,10 @@ select.form-control option[value=""][disabled] {
   -webkit-appearance: none;
 }
 .wizard-option-list li.active:before {
-  color: #193db3;
+  color: rgb(13, 59, 107);
 }
 .wizard-option-list li.active .option-item-list select {
-  border: 2px solid #193db3;
+  border: 2px solid rgb(13, 59, 107);
 }
 .wizard-option-list li.no-arrow:after {
   display: none;
@@ -1116,7 +1112,7 @@ select.form-control option[value=""][disabled] {
 .wizard-option-list .upload-araa .upload-text span {
   display: inline-block;
   padding: 3px 0px;
-  color: #193db3;
+  color: rgb(13, 59, 107);
   font-size: 20px;
   font-weight: 500;
 }
@@ -1129,7 +1125,7 @@ select.form-control option[value=""][disabled] {
 }
 .wizard-option-list .upload-araa .upload-option label {
   margin-bottom: 0;
-  color: #193db3;
+  color: rgb(13, 59, 107);
   font-size: 20px;
   font-weight: 500;
 }
@@ -1148,7 +1144,7 @@ select.form-control option[value=""][disabled] {
 .wizard-option-list .taxable-area .checkbo-box-border:before {
   top: 6px;
   left: 10px;
-  color: #193db3;
+  color: rgb(13, 59, 107);
   content: "";
   font-size: 16px;
   font-weight: 900;
@@ -1170,7 +1166,7 @@ select.form-control option[value=""][disabled] {
 }
 .wizard-option-list .texable-option {
   top: 10px;
-  color: #193db3;
+  color: rgb(13, 59, 107);
   font-size: 20px;
   font-weight: 500;
   padding-left: 50px;
@@ -1203,7 +1199,7 @@ select.form-control option[value=""][disabled] {
 .wizard-identity .upload-option label {
   font-size: 25px;
   font-weight: 600;
-  color: #193db3;
+  color: rgb(13, 59, 107);
   margin-bottom: 0;
 }
 .wizard-identity .upload-option span {
@@ -1237,7 +1233,7 @@ select.form-control option[value=""][disabled] {
 .identity-option li {
   width: 100%; 
   height: auto;
-  color: #193db3;
+  color: rgb(13, 59, 107);
   font-size: 18px;
   font-weight: 600;
   position: relative;
@@ -1278,7 +1274,7 @@ select.form-control option[value=""][disabled] {
   width: 22px;
   display: none;
   border-radius: 50%;
-  background-color: #193db3;
+  background-color: rgb(13, 59, 107);
   top: 50%;
   left: 5.5px;
   transform: translateY(-50%);
@@ -1301,7 +1297,7 @@ select.form-control option[value=""][disabled] {
   background-color: #ddeef9;
 }
 .n-summary span {
-  color: #193db3;
+  color: rgb(13, 59, 107);
   font-size: 20px;
   font-weight: 500;
 }
@@ -1332,7 +1328,7 @@ select.form-control option[value=""][disabled] {
   border: 2px solid transparent;
 }
 .n-activity.checked {
-  border: 2px solid #193db3;
+  border: 2px solid rgb(13, 59, 107);
   background: transparent;
 }
 .n-activity label {
@@ -1363,13 +1359,13 @@ select.form-control option[value=""][disabled] {
   position: absolute;
   height: 40px;
   width: 40px;
-  border: 2px solid #193db3;
+  border: 2px solid rgb(13, 59, 107);
 }
 .n-activity label .net-check:checked ~ .net-check-border:before {
   display: block;
 }
 .n-activity .n-title {
-  color: #193db3;
+  color: rgb(13, 59, 107);
   font-size: 20px;
   font-weight: 500;
   text-align: left;
@@ -1383,7 +1379,7 @@ select.form-control option[value=""][disabled] {
 }
 .n-checked span {
   display: block;
-  color: #193db3;
+  color: rgb(13, 59, 107);
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 5px;
@@ -1401,7 +1397,7 @@ select.form-control option[value=""][disabled] {
 .n-select-option select {
   width: 100%;
   height: 83px;
-  color: #193db3;
+  color: rgb(13, 59, 107);
   font-size: 20px;
   font-weight: 500;
   padding-left: 30px;
@@ -1464,7 +1460,7 @@ select.form-control option[value=""][disabled] {
 }
 @media screen and (max-width: 1280px) {
   .wrapper {
-    max-height: 1195px;
+    max-height: 1395px;
   }
 
   .wizard > .steps li {
@@ -1489,7 +1485,7 @@ select.form-control option[value=""][disabled] {
 }
 @media screen and (max-width: 991px) {
   .wrapper {
-    max-height: 1195px;
+    max-height: 1395px;
   }
   .multisteps-form__progress {
     padding: 0;
@@ -1564,7 +1560,7 @@ select.form-control option[value=""][disabled] {
 }
 @media screen and (max-width: 767px) {
   .wrapper {
-    max-height: 1205px;
+    max-height: 1505px;
   }
   .pb-100 {
     padding-bottom: 30px;
@@ -1671,7 +1667,7 @@ select.form-control option[value=""][disabled] {
 }
 @media screen and (max-width: 460px) {
   .wrapper {
-    max-height: 1215px;
+    max-height: 1515px;
   }
   .wizard-progress {
     width: 290px;
