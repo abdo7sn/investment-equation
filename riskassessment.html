@@ -9,8 +9,6 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/animate.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/style_risk.css">
-    <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Plugins CSS -->
     <link href="css/plugins.css" rel="stylesheet">
@@ -20,6 +18,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <!-- Custom CSS -->  
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/header.css" rel="stylesheet">
+    <link href="css/style_risk.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
+
 
     <script src="https://cdn.jsdelivr.net/npm/autonumeric@4.6.0/dist/autoNumeric.min.js"></script>
 
@@ -32,39 +37,58 @@
     <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-header navbar-mobile">
         <div class="navbar-container container">
           <div class="navbar-brand">
-            <a class="navbar-brand-logo" href="index.html">
-              <img src="images/logo.png" alt="logo">
+            <a class="navbar-brand-logo" href="file:///C:/wamp64/www/investment_equation/index.html">
+              <svg xmlns="http://www.w3.org/2000/svg" width="171" height="33" fill="none"><path d="M 154.493 14.55 C 151.268 18.937 148.058 23.302 144.848 27.66 C 144.81 27.705 144.848 27.772 144.9 27.78 C 145.095 27.802 145.268 27.802 145.44 27.81 C 145.628 27.825 145.733 27.757 145.845 27.607 C 147.908 24.802 149.978 21.997 152.055 19.192 C 153.008 17.902 153.96 16.612 154.913 15.315 C 154.958 15.255 154.995 15.135 154.965 15.075 C 154.868 14.895 154.748 14.73 154.613 14.542 C 154.6 14.522 154.577 14.509 154.553 14.509 C 154.528 14.509 154.505 14.522 154.493 14.542 M 154.553 10.237 C 154.582 10.192 154.642 10.192 154.672 10.237 C 155.303 11.122 155.91 11.962 156.502 12.817 C 156.998 13.53 157.477 14.25 157.972 14.962 C 158.055 15.088 158.055 15.25 157.972 15.375 C 154.515 20.077 151.065 24.787 147.608 29.49 C 147.547 29.572 147.428 29.647 147.337 29.647 C 145.05 29.655 142.755 29.647 140.468 29.647 L 140.452 29.647 C 140.392 29.647 140.355 29.572 140.392 29.527 C 145.117 23.092 149.82 16.68 154.552 10.23" fill="rgb(56,181,74)"></path><path d="M 159.068 20.737 C 159.555 20.07 160.043 19.425 160.53 18.758 C 160.56 18.72 160.62 18.72 160.65 18.758 C 164.01 23.302 167.355 27.832 170.723 32.392 C 170.74 32.415 170.742 32.446 170.73 32.471 C 170.717 32.496 170.691 32.513 170.662 32.512 L 138.15 32.512 C 138.09 32.512 138.053 32.437 138.09 32.392 C 138.113 32.355 138.135 32.325 138.165 32.295 C 138.623 31.672 139.08 31.057 139.53 30.427 C 139.627 30.292 139.732 30.232 139.897 30.232 C 143.317 30.232 146.738 30.225 150.15 30.217 L 165.712 30.195 L 165.832 30.195 C 165.892 30.195 165.93 30.12 165.892 30.075 C 163.597 26.97 161.34 23.91 159.06 20.827 C 159.037 20.797 159.037 20.76 159.06 20.737" fill="rgb(56,181,74)"></path><path d="M 158.497 25.74 C 158.01 26.4 157.545 27.022 157.065 27.667 C 157.048 27.69 157.045 27.721 157.058 27.746 C 157.071 27.771 157.097 27.787 157.125 27.787 L 159.982 27.787 C 160.042 27.787 160.08 27.712 160.042 27.667 C 159.562 27.022 159.105 26.392 158.617 25.74 C 158.605 25.719 158.582 25.707 158.557 25.707 C 158.533 25.707 158.51 25.719 158.497 25.74 M 158.618 21.518 C 160.59 24.188 162.548 26.835 164.52 29.513 C 164.537 29.535 164.54 29.566 164.527 29.591 C 164.514 29.616 164.488 29.633 164.46 29.633 L 148.575 29.633 C 148.515 29.633 148.477 29.558 148.515 29.513 L 156.442 18.81 C 156.472 18.765 156.532 18.765 156.562 18.81 C 157.042 19.455 157.522 20.115 158.002 20.775 C 158.025 20.805 158.025 20.843 158.002 20.865 C 156.33 23.13 154.672 25.38 152.97 27.683 C 152.953 27.705 152.95 27.736 152.963 27.761 C 152.976 27.786 153.002 27.803 153.03 27.803 C 153.3 27.803 153.547 27.803 153.787 27.795 C 153.847 27.795 153.9 27.698 153.952 27.638 C 155.43 25.643 156.907 23.648 158.392 21.645 C 158.422 21.6 158.46 21.563 158.497 21.51 C 158.527 21.473 158.587 21.473 158.617 21.51 M 158.422 20.138 C 157.927 19.463 157.447 18.817 156.96 18.15 C 156.937 18.12 156.937 18.083 156.96 18.06 C 157.47 17.37 157.972 16.688 158.49 15.99 C 158.52 15.953 158.58 15.945 158.61 15.99 C 159.082 16.628 159.555 17.265 160.02 17.902 C 160.057 17.947 160.072 18.06 160.042 18.105 C 159.555 18.78 159.06 19.447 158.55 20.138 C 158.52 20.183 158.46 20.183 158.43 20.138" fill="rgb(56,181,74)"></path><path d="M 10.32 10.253 C 9 11.055 8.025 12.225 7.387 13.77 L 5.79 13.77 L 5.79 9.285 L 0 9.285 L 0 15.053 L 2.82 15.053 L 2.82 32.505 L 8.422 32.505 L 8.422 20.663 C 8.422 18.653 8.94 17.04 9.968 15.825 C 10.995 14.61 12.54 14.01 14.595 14.01 L 16.763 14.01 L 16.763 9.06 L 14.858 9.06 C 13.155 9.06 11.648 9.458 10.328 10.26 M 33.143 23.1 C 33.143 24.105 32.858 25.012 32.288 25.83 C 31.718 26.64 30.938 27.285 29.948 27.765 C 28.958 28.245 27.84 28.477 26.595 28.477 C 25.35 28.477 24.383 28.215 23.678 27.682 C 22.98 27.157 22.628 26.415 22.628 25.455 C 22.628 23.52 23.91 22.552 26.475 22.552 L 33.143 22.552 L 33.143 23.092 Z M 38.55 17.835 C 38.55 14.895 37.672 12.652 35.917 11.122 C 34.162 9.585 31.612 8.82 28.26 8.82 C 25.29 8.82 22.882 9.472 21.045 10.77 C 19.2 12.075 18.052 13.965 17.595 16.44 L 23.272 16.44 C 23.857 14.43 25.522 13.425 28.26 13.425 C 31.507 13.425 33.135 14.842 33.135 17.685 L 33.135 18.615 L 26.167 18.615 C 23.272 18.615 21.06 19.237 19.522 20.475 C 17.985 21.712 17.22 23.467 17.22 25.74 C 17.22 28.012 17.977 29.647 19.485 30.967 C 20.992 32.28 23.085 32.94 25.747 32.94 C 27.675 32.94 29.31 32.58 30.645 31.86 C 31.98 31.14 33.037 30.12 33.825 28.8 L 35.422 28.8 L 35.422 32.512 L 41.25 32.512 L 41.25 26.745 L 38.542 26.745 L 38.542 17.842 Z M 46.988 1.163 C 46.14 1.935 45.713 3.135 45.713 4.762 L 45.713 9.293 L 41.408 9.293 L 41.408 13.785 L 45.675 13.785 L 45.675 32.513 L 51.353 32.513 L 51.353 13.785 L 56.573 13.785 L 56.573 9.292 L 51.278 9.292 L 51.278 4.492 L 57.03 4.492 L 57.03 0 L 50.558 0 C 49.035 0 47.843 0.39 46.995 1.163 M 74.542 23.1 C 74.542 24.105 74.257 25.012 73.687 25.83 C 73.117 26.64 72.337 27.285 71.347 27.765 C 70.357 28.245 69.24 28.477 67.995 28.477 C 66.75 28.477 65.775 28.215 65.077 27.682 C 64.38 27.157 64.027 26.415 64.027 25.455 C 64.027 23.52 65.31 22.552 67.875 22.552 L 74.542 22.552 L 74.542 23.092 Z M 79.95 17.835 C 79.95 14.895 79.072 12.652 77.325 11.122 C 75.57 9.585 73.02 8.82 69.667 8.82 C 66.697 8.82 64.29 9.472 62.452 10.77 C 60.607 12.075 59.46 13.965 59.002 16.44 L 64.68 16.44 C 65.265 14.43 66.93 13.425 69.667 13.425 C 72.915 13.425 74.542 14.842 74.542 17.685 L 74.542 18.615 L 67.575 18.615 C 64.68 18.615 62.467 19.237 60.93 20.475 C 59.392 21.712 58.627 23.467 58.627 25.74 C 58.627 28.012 59.385 29.647 60.892 30.967 C 62.4 32.28 64.492 32.94 67.155 32.94 C 69.082 32.94 70.717 32.58 72.052 31.86 C 73.387 31.14 74.445 30.12 75.232 28.8 L 76.83 28.8 L 76.83 32.512 L 82.657 32.512 L 82.657 26.745 L 79.95 26.745 L 79.95 17.842 Z M 100.335 23.1 C 100.335 24.105 100.05 25.012 99.48 25.83 C 98.91 26.64 98.13 27.285 97.14 27.765 C 96.15 28.245 95.032 28.477 93.787 28.477 C 92.542 28.477 91.567 28.215 90.87 27.682 C 90.172 27.157 89.82 26.415 89.82 25.455 C 89.82 23.52 91.102 22.552 93.667 22.552 L 100.335 22.552 L 100.335 23.092 Z M 105.742 17.835 C 105.742 14.895 104.865 12.652 103.117 11.122 C 101.37 9.592 98.812 8.82 95.46 8.82 C 92.49 8.82 90.082 9.472 88.245 10.77 C 86.4 12.075 85.252 13.965 84.795 16.44 L 90.472 16.44 C 91.057 14.43 92.722 13.425 95.46 13.425 C 98.707 13.425 100.335 14.842 100.335 17.685 L 100.335 18.615 L 93.367 18.615 C 90.472 18.615 88.26 19.237 86.722 20.475 C 85.185 21.712 84.42 23.467 84.42 25.74 C 84.42 28.012 85.177 29.647 86.685 30.967 C 88.192 32.28 90.285 32.94 92.947 32.94 C 94.875 32.94 96.51 32.58 97.845 31.86 C 99.18 31.14 100.237 30.12 101.025 28.8 L 102.622 28.8 L 102.622 32.512 L 108.45 32.512 L 108.45 26.745 L 105.742 26.745 L 105.742 17.842 Z M 131.663 11.498 C 129.975 9.743 127.695 8.865 124.823 8.865 C 123.098 8.865 121.598 9.195 120.33 9.848 C 119.063 10.508 118.058 11.468 117.323 12.728 L 117.173 12.728 L 117.173 0 L 111.495 0 L 111.495 32.505 L 117.173 32.505 L 117.173 19.582 C 117.173 17.752 117.653 16.357 118.62 15.405 C 119.588 14.453 120.998 13.973 122.85 13.973 C 124.703 13.973 126.113 14.453 127.08 15.405 C 128.048 16.357 128.528 17.752 128.528 19.582 L 128.528 32.505 L 134.205 32.505 L 134.205 18.495 C 134.205 15.578 133.358 13.245 131.67 11.49" fill="rgb(0,0,0)"></path></svg>
             </a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
           </button>
+          
           <div class="collapse navbar-collapse justify-content-around" id="navbarNav">
             <ul class="navbar-nav menu-navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="index.html#calculater"><i class="fas fa-chart-line"></i> Compound Interest</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-shield-alt"></i> Risk Assessment</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="retirement.html"><i class="fas fa-umbrella-beach"></i> Retirement</a>
-              </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://rafaah.ai">Track your wealth</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://learn.rafaah.ai">Start Learning</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://learn.rafaah.ai/consultation">Book your consultation</a>
+                </li>
             </ul>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link learn-more-btn" href="index.html#contact">Contact</a>
+                <a class="learn-more-btn" href="file:///C:/wamp64/www/investment_equation/index.html#contact">Contact</a>
               </li>
             </ul>
           </div>
         </div>
     </nav>
     <!-- Navigation End -->
-    
+
+    <!-- New Section for Buttons -->
+    <section id="quick-tools" class="quick-tools-section">
+        <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12 text-center">
+            <h2 class="section-heading">Quick Tools</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+            <div class="custom-buttons">
+                <a href="#calculator" class="custom-button"> Investment Calculator</a>
+                <a href="file:///C:/wamp64/www/investment_equation/riskassessment.html" class="custom-button active"> Risk Assessment</a>
+                <a href="file:///C:/wamp64/www/investment_equation/retirement.html" class="custom-button"> Retirement Calculator</a>
+                <a href="file:///C:/wamp64/www/investment_equation/ratioanalysis.html" class="custom-button"> Financial Ratios Calculator</a>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
     <!-- Wrapper Clearfix Start -->
 	<div class="wrapper clearfix">
 		<div class="wizard-part-title">
