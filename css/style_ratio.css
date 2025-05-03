@@ -61,7 +61,8 @@ body {
     }
     #navbar-menu.active {
         display: flex;
-        z-index: 1100; /* Higher z-index to ensure menu is above quick-tools-section */
+        position: absolute;
+        z-index: 9999;
     }
     .nav-link {
         color: #333 !important;
@@ -331,7 +332,6 @@ button#recalculateBtn:hover {
     background: linear-gradient(90deg, rgba(245, 246, 250), rgba(237, 242, 247));
     margin-top: 0; /* Remove margin-top to ensure it appears below the navbar */
     position: relative; /* Ensure it’s not affected by absolute positioning of other elements */
-    z-index: 50; /* Ensure it’s above other elements */
     margin-top: 10px;
 }
 
